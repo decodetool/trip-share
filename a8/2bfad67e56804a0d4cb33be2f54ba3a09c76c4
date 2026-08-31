@@ -1,0 +1,199 @@
+src/components/CityDetailSheet.tsx
+  s_b1c6a5054322ff::t_2f3a43d2f934b6 1-105
+src/components/PlaceDetailSheet.tsx
+  s_b1c6a5054322ff::t_503320b10294c0 1-173
+src/routes/cities.$cityId.tsx
+  s_b1c6a5054322ff::t_56f0ccd1851c8e 1-230
+src/routes/components.index.tsx
+  s_b1c6a5054322ff::t_70c179bff7768d 1-596
+src/routes/friends.tsx
+  s_b1c6a5054322ff::t_d34f2b586c7a37 1-198
+src/routes/index.tsx
+  s_b1c6a5054322ff::t_b8880241187165 1-308
+src/routes/itinerary.tsx
+  s_b1c6a5054322ff::t_4a5483a8bf0f6c 1-231
+src/routes/messages.$conversationId.tsx
+  s_b1c6a5054322ff::t_a3572af58051ab 1-218
+src/routes/profile.tsx
+  s_b1c6a5054322ff::t_48cced4d9de72f 1-158
+src/routes/settings.profile.tsx
+  s_b1c6a5054322ff::t_0e95207ae01c8c 1-120
+src/routes/trips.$tripId.tsx
+  s_b1c6a5054322ff::t_8aaf643e8b8f88 1-398
+DESIGN.md
+  s_d394d001ef2b0b::t_c6c7f522ec40cd 1-111
+PRODUCT.md
+  s_d394d001ef2b0b::t_a32e75ce628fdd 1-33
+src/App.tsx
+  s_8b7daf0cd1f187::t_794df9286ff0bd 1-37
+src/components/AppShell.tsx
+  s_8b7daf0cd1f187::t_fa9747156544b7 1-79
+src/components/LoadingSkeleton.tsx
+  s_8b7daf0cd1f187::t_e2980dc958291c 1-71
+src/components/Map.tsx
+  s_8b7daf0cd1f187::t_6e789d03ed0c91 1-202
+src/components/ThemeProvider.tsx
+  s_f385738377f926::t_a296faf29e61de 1-41
+src/components/ui/BottomSheet.css
+  s_f385738377f926::t_7328d7d4ee280e 1-119
+src/components/ui/BottomSheet.tsx
+  s_8b7daf0cd1f187::t_14cf0647336b88 1-80
+src/components/ui/Tabs.tsx
+  s_8b7daf0cd1f187::t_de561295dd8d46 1-62
+src/index.css
+  s_f385738377f926::t_86b98b685048ca 1-113
+src/lib/theme.ts
+  s_f385738377f926::t_873ac081532075 1-37
+src/main.tsx
+  s_f385738377f926::t_8c485e0f77b874 1-41
+src/routes/__root.tsx
+  s_8b7daf0cd1f187::t_c9192a3f9289c6 1-12
+src/routes/activity.tsx
+  s_8b7daf0cd1f187::t_f4a28aeb62df72 1-156
+src/routes/map.tsx
+  s_8b7daf0cd1f187::t_59ac43f0af099b 1-206
+src/routes/messages.index.tsx
+  s_8b7daf0cd1f187::t_5feebd120b787f 1-183
+src/routes/settings.index.tsx
+  s_f385738377f926::t_b4a501ad34f011 1-242
+src/ui/components/Accordion.tsx
+  s_8b7daf0cd1f187::t_ad776213157fdf 1-142
+src/ui/components/Alert.tsx
+  s_8b7daf0cd1f187::t_bba47f482b241c 1-111
+src/ui/components/AreaChart.tsx
+  s_8b7daf0cd1f187::t_0c833bcacf17b4 1-42
+src/ui/components/Avatar.tsx
+  s_8b7daf0cd1f187::t_57c439c0e0ed00 1-92
+src/ui/components/Badge.tsx
+  s_8b7daf0cd1f187::t_ad9f6dc2fbe1ef 1-100
+src/ui/components/BarChart.tsx
+  s_8b7daf0cd1f187::t_321e9540a804e9 1-42
+src/ui/components/Breadcrumbs.tsx
+  s_8b7daf0cd1f187::t_32e2fddf367405 1-85
+src/ui/components/Button.tsx
+  s_8b7daf0cd1f187::t_7bbb9e8d2580b9 1-185
+src/ui/components/Calendar.tsx
+  s_8b7daf0cd1f187::t_5c840b5306a865 1-52
+src/ui/components/Checkbox.tsx
+  s_8b7daf0cd1f187::t_a8110b54600127 1-60
+src/ui/components/CheckboxCard.tsx
+  s_8b7daf0cd1f187::t_509321357346ef 1-68
+src/ui/components/CheckboxGroup.tsx
+  s_8b7daf0cd1f187::t_7c5c8b05edf4a2 1-78
+src/ui/components/ContextMenu.tsx
+  s_8b7daf0cd1f187::t_ec82c4d3105437 1-115
+src/ui/components/CopyToClipboardButton.tsx
+  s_8b7daf0cd1f187::t_0115de87627617 1-77
+src/ui/components/Dialog.tsx
+  s_8b7daf0cd1f187::t_cdba9231564d89 1-67
+src/ui/components/Drawer.tsx
+  s_8b7daf0cd1f187::t_b1f6523a9baff8 1-67
+src/ui/components/DropdownMenu.tsx
+  s_8b7daf0cd1f187::t_017ad808356366 1-107
+src/ui/components/FullscreenDialog.tsx
+  s_8b7daf0cd1f187::t_fd455f02a67b73 1-41
+src/ui/components/HomeListItem.tsx
+  s_8b7daf0cd1f187::t_203f31662ae05f 1-77
+src/ui/components/IconButton.tsx
+  s_8b7daf0cd1f187::t_6b38aa340d9bb0 1-130
+src/ui/components/IconWithBackground.tsx
+  s_8b7daf0cd1f187::t_aeefac703c0bbd 1-78
+src/ui/components/LineChart.tsx
+  s_8b7daf0cd1f187::t_fd4f86db48ee92 1-40
+src/ui/components/LinkButton.tsx
+  s_8b7daf0cd1f187::t_478469223ff90c 1-106
+src/ui/components/Loader.tsx
+  s_8b7daf0cd1f187::t_ff3f7393eb507a 1-40
+src/ui/components/PieChart.tsx
+  s_8b7daf0cd1f187::t_395dea2abfced0 1-37
+src/ui/components/Progress.tsx
+  s_8b7daf0cd1f187::t_60d4bcc0be4e38 1-61
+src/ui/components/RadioCardGroup.tsx
+  s_8b7daf0cd1f187::t_fef1c9f7ba4e53 1-99
+src/ui/components/RadioGroup.tsx
+  s_8b7daf0cd1f187::t_a410f376f6d891 1-125
+src/ui/components/Select.tsx
+  s_8b7daf0cd1f187::t_309f01f7b7a9de 1-275
+src/ui/components/SidebarRailWithIcons.tsx
+  s_8b7daf0cd1f187::t_e9589008e9a22e 1-122
+src/ui/components/SidebarWithSections.tsx
+  s_8b7daf0cd1f187::t_c4253e30885718 1-155
+src/ui/components/SkeletonCircle.tsx
+  s_8b7daf0cd1f187::t_3744a6cde9260b 1-37
+src/ui/components/SkeletonText.tsx
+  s_8b7daf0cd1f187::t_e26bffacc543d3 1-42
+src/ui/components/Slider.tsx
+  s_8b7daf0cd1f187::t_0130847651d709 1-110
+src/ui/components/Stepper.tsx
+  s_8b7daf0cd1f187::t_bec19a44e54ad6 1-124
+src/ui/components/Switch.tsx
+  s_8b7daf0cd1f187::t_09bca153fb4789 1-67
+src/ui/components/Table.tsx
+  s_8b7daf0cd1f187::t_a805dc80d1fd0e 1-146
+src/ui/components/Tabs.tsx
+  s_8b7daf0cd1f187::t_7b5599847a2480 1-105
+src/ui/components/TextArea.tsx
+  s_8b7daf0cd1f187::t_47222a0e03a669 1-106
+src/ui/components/TextField.tsx
+  s_8b7daf0cd1f187::t_4038b4ecff7751 1-128
+src/ui/components/Toast.tsx
+  s_8b7daf0cd1f187::t_f733e4da2691ae 1-87
+src/ui/components/ToggleGroup.tsx
+  s_8b7daf0cd1f187::t_65a4889d609bce 1-102
+src/ui/components/Tooltip.tsx
+  s_8b7daf0cd1f187::t_bc2e6cc697a12a 1-39
+src/ui/components/TreeView.tsx
+  s_8b7daf0cd1f187::t_32dcba71002468 1-148
+src/ui/components/VerticalStepper.tsx
+  s_8b7daf0cd1f187::t_60c3a8d3008d3a 1-149
+src/ui/layouts/DefaultPageLayout.tsx
+  s_8b7daf0cd1f187::t_bd6f4591475473 1-121
+src/ui/layouts/DialogLayout.tsx
+  s_8b7daf0cd1f187::t_eeff954aa9a91f 1-36
+src/ui/layouts/DrawerLayout.tsx
+  s_8b7daf0cd1f187::t_da239f02c2ee62 1-36
+tailwind.config.js
+  s_f385738377f926::t_1ee1c41758ec88 1-68
+vite.config.ts
+  s_d394d001ef2b0b::t_a45e2c668b0896 1-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "a82bfad67e56804a0d4cb33be2f54ba3a09c76c4",
+  "prompts": {},
+  "sessions": {
+    "s_8b7daf0cd1f187": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5396e848-5c53-450d-bd5c-1628f4f50e22",
+        "model": "unknown"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    },
+    "s_b1c6a5054322ff": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb9c2-d688-7e41-99af-21507859f6e3",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    },
+    "s_d394d001ef2b0b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019faf86-3961-7cc0-bfa0-b6ef520c633f",
+        "model": "unknown"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    },
+    "s_f385738377f926": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb8c7-5013-7ef0-9a3b-fa935b3f3d73",
+        "model": "unknown"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  }
+}
