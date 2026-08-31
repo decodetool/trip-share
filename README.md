@@ -2,6 +2,18 @@
 
 A demo app used in Decode tutorials.
 
+## 📦 Getting Started
+
+```bash
+# Install dependencies
+npm i
+
+# Start dev server
+npm run dev
+```
+
+Visit `http://localhost:5173` to see the app.
+
 ## Product intent
 
 **TripShare helps groups turn scattered trip ideas into an agreed, shared itinerary.**
@@ -29,18 +41,6 @@ Shared costs are a natural adjacent feature: when someone pays for a meal, ride,
 - Zustand
 - MapLibre GL JS
 - Framer Motion
-
-## 📦 Getting Started
-
-```bash
-# Install dependencies
-npm i
-
-# Start dev server
-npm run dev
-```
-
-Visit `http://localhost:5173` to see the app.
 
 ## 📱 Screens
 
