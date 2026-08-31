@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      // Fix made-refine <-> @vitejs/plugin-react Fast Refresh incompatibility.
+      // made-refine's preload (a classic script Vite injects into <head>) installs
+      // window.__REACT_DEVTOOLS_GLOBAL_HOOK__ without a `renderers` map. Vite's React
+      // Refresh preamble (a deferred module that runs after this classic script) then
+      // calls injectIntoGlobalHook, which does `hook.renderers.forEach(...)` and throws
+      // "Cannot read properties of undefined (reading 'forEach')", aborting the preamble
+      // ("@vitejs/plugin-react can't detect preamble"). This runs right after made-refine's
+      // preload but before the deferred preamble, backfilling the missing map. No-op once
+      // made-refine ships a hook that includes `renderers`.
+      (function () {
+        var h = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+        if (h && !h.renderers) h.renderers = new Map();
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trip Share</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
