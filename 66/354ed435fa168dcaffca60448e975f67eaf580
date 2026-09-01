@@ -1,0 +1,26 @@
+src/components/AppShell.tsx
+  s_ada4431ccedc1a::t_d10d92b2c62bff 13
+src/routes/cities.$cityId.tsx
+  s_ada4431ccedc1a::t_d10d92b2c62bff 71
+src/routes/index.tsx
+  s_ada4431ccedc1a::t_d10d92b2c62bff 2,5-9,11
+src/routes/discover.tsx
+  s_ada4431ccedc1a::t_d10d92b2c62bff 1,25,27-29,165-166,175,250
+  s_ada4431ccedc1a::t_048c67ee8a5a30 186-187
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "66354ed435fa168dcaffca60448e975f67eaf580",
+  "prompts": {},
+  "sessions": {
+    "s_ada4431ccedc1a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a05924-dba6-72b1-b217-c19f57b7a8c6",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  }
+}
