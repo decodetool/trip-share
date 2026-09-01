@@ -65,16 +65,3 @@ export function BottomSheet({
 
 // Compound component pattern for trigger
 BottomSheet.Trigger = Sheet.Trigger;
-
-// Controlled version
-export function useBottomSheet() {
-  return {
-    Root: Sheet.Root,
-    Trigger: Sheet.Trigger,
-    Portal: Sheet.Portal,
-    View: Sheet.View,
-    Backdrop: Sheet.Backdrop,
-    Content: Sheet.Content,
-    BleedingBackground: Sheet.BleedingBackground,
-  };
-}

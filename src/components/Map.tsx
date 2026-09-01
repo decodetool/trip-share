@@ -80,7 +80,7 @@ export function Map({ places, selectedPlaceId, onPlaceClick, categoryColors, cat
     } else {
       fitBoundsOnLoad();
     }
-  }, []); // Empty deps - only run once
+  }, [places, selectedPlaceId]);
 
   // Create/update markers when places change
   useEffect(() => {
@@ -159,7 +159,7 @@ export function Map({ places, selectedPlaceId, onPlaceClick, categoryColors, cat
 
       markers.current.push(marker);
     });
-  }, [places, categoryColors, categoryEmoji, onPlaceClick, mapReady]);
+  }, [places, categoryColors, categoryEmoji, onPlaceClick, mapReady, selectedPlaceId]);
 
   // Update marker styles when selection changes (without recreating them)
   useEffect(() => {

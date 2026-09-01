@@ -398,37 +398,37 @@ After implementation, these URLs will be embeddable:
 **Trip Planning Branch:**
 
 ```
-http://localhost:5179/trips
-http://localhost:5179/trips?filter=upcoming
-http://localhost:5179/trips/new
-http://localhost:5179/trips/new?step=2
-http://localhost:5179/trips/trip-1
-http://localhost:5179/trips/trip-1?tab=budget
-http://localhost:5179/trips/trip-1?modal=invite
+http://localhost:5173/trips
+http://localhost:5173/trips?filter=upcoming
+http://localhost:5173/trips/new
+http://localhost:5173/trips/new?step=2
+http://localhost:5173/trips/trip-1
+http://localhost:5173/trips/trip-1?tab=budget
+http://localhost:5173/trips/trip-1?modal=invite
 ```
 
 **Social Branch:**
 
 ```
-http://localhost:5179/friends
-http://localhost:5179/friends/user-123
-http://localhost:5179/messages
-http://localhost:5179/messages?conversation=conv-456
-http://localhost:5179/activity
-http://localhost:5179/groups (Not implemented)
-http://localhost:5179/groups/group-789 (Not implemented)
+http://localhost:5173/friends
+http://localhost:5173/friends/user-123
+http://localhost:5173/messages
+http://localhost:5173/messages?conversation=conv-456
+http://localhost:5173/activity
+http://localhost:5173/groups (Not implemented)
+http://localhost:5173/groups/group-789 (Not implemented)
 ```
 
 **Settings Branch:**
 
 ```
-http://localhost:5179/settings
-http://localhost:5179/settings/profile
-http://localhost:5179/settings/notifications (Not implemented)
-http://localhost:5179/settings/privacy (Not implemented)
-http://localhost:5179/settings/language-region (Not implemented)
-http://localhost:5179/settings/help (Not implemented)
-http://localhost:5179/settings/about (Not implemented)
+http://localhost:5173/settings
+http://localhost:5173/settings/profile
+http://localhost:5173/settings/notifications (Not implemented)
+http://localhost:5173/settings/privacy (Not implemented)
+http://localhost:5173/settings/language-region (Not implemented)
+http://localhost:5173/settings/help (Not implemented)
+http://localhost:5173/settings/about (Not implemented)
 ```
 
 ---
@@ -603,18 +603,18 @@ ROOT (/)
 
 **Component Gallery Branch:** ✨ NEW
 
-- `http://localhost:5179/components`
-- `http://localhost:5179/components?component=TripTimelineCard`
-- `http://localhost:5179/components?component=MessageBubble`
-- `http://localhost:5179/components?component=TabsComponent`
-- `http://localhost:5179/components?component=DateBadge`
-- `http://localhost:5179/components?component=AvatarGroup`
-- `http://localhost:5179/components?component=StatusBadges`
-- `http://localhost:5179/components?component=Buttons`
-- `http://localhost:5179/components?component=CityCard`
-- `http://localhost:5179/components?component=ActivityCard`
-- `http://localhost:5179/components?component=ConversationItem`
-- `http://localhost:5179/components?component=SettingsItem`
+- `http://localhost:5173/components`
+- `http://localhost:5173/components?component=TripTimelineCard`
+- `http://localhost:5173/components?component=MessageBubble`
+- `http://localhost:5173/components?component=TabsComponent`
+- `http://localhost:5173/components?component=DateBadge`
+- `http://localhost:5173/components?component=AvatarGroup`
+- `http://localhost:5173/components?component=StatusBadges`
+- `http://localhost:5173/components?component=Buttons`
+- `http://localhost:5173/components?component=CityCard`
+- `http://localhost:5173/components?component=ActivityCard`
+- `http://localhost:5173/components?component=ConversationItem`
+- `http://localhost:5173/components?component=SettingsItem`
 
 ---
 
@@ -852,7 +852,7 @@ When creating infinite canvas visualizations of this app:
 ### Development Commands
 
 ```bash
-npm run dev          # Start dev server (http://localhost:5179)
+npm run dev          # Start dev server (http://localhost:5173)
 npm run build        # Build for production
 npm run preview      # Preview production build
 npm run lint         # Run ESLint

@@ -4,15 +4,21 @@ A demo app used in Decode tutorials.
 
 ## 📦 Getting Started
 
-```bash
-# Install dependencies
-npm i
+1. [Node](https://nodejs.org/en/download) is required
+1. Install dependencies
 
-# Start dev server
-npm run dev
-```
+   ```bash
+   npm i
+   ```
 
-Visit `http://localhost:5173` to see the app.
+1. Start the dev server
+
+   ```bash
+   # Start dev server
+   npm run dev
+   ```
+
+1. Open http://localhost:5173
 
 ## Product intent
 
@@ -61,3 +67,7 @@ Shared costs are a natural adjacent feature: when someone pays for a meal, ride,
 ## 📄 License
 
 MIT
+
+```
+
+```

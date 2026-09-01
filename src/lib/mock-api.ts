@@ -124,5 +124,6 @@ export const mockApi = {
 
   async deleteItineraryItem(_id: string): Promise<void> {
     await sleep(LATENCY);
+    void _id;
   },
 };

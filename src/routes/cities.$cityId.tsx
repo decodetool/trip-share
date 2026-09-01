@@ -180,7 +180,7 @@ function CityDetailComponent() {
                     <span className="text-text-secondary capitalize">{place.category}</span>
                     <div className="flex items-center gap-1 text-text-secondary">
                       <Star className="w-3 h-3 fill-current" />
-                      <span>4.{Math.floor(Math.random() * 3) + 6}</span>
+                      <span>4.8</span>
                     </div>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { mockActivities } from '@/lib/seed-data';
 import { Plane, MapPin, UserPlus, CheckCircle, Sparkles } from 'lucide-react';
+import type { Activity } from '@/types';
 
 export const Route = createFileRoute('/activity')({
   component: ActivityFeedComponent,
@@ -26,7 +27,7 @@ function ActivityFeedComponent() {
     }
   };
 
-  const getActivityText = (activity: any) => {
+  const getActivityText = (activity: Activity) => {
     switch (activity.type) {
       case 'trip_created':
         return (

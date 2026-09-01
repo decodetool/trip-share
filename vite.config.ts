@@ -18,12 +18,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    host: "0.0.0.0",
-    port: 5179,
-    strictPort: true,
-    allowedHosts: ["192.168.1.70", "localhost"],
-    // no hmr.host override
-    // no hmr.clientPort override
-  },
 });

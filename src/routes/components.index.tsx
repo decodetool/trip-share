@@ -218,7 +218,7 @@ function ComponentPreview({ componentId, mini = false }: { componentId: string; 
       return <MessageBubbleExample message={mockMessage} mini={mini} />;
 
     case 'MessageBubbleVariants':
-      return <MessageBubbleVariantsExample mini={mini} />;
+      return <MessageBubbleVariantsExample />;
 
     case 'ConversationItem':
       return <ConversationItemExample mini={mini} />;
@@ -350,7 +350,7 @@ function MessageBubbleExample({ message, mini }: { message: Message; mini?: bool
   );
 }
 
-function MessageBubbleVariantsExample({ mini: _mini }: { mini?: boolean }) {
+function MessageBubbleVariantsExample() {
   return (
     <div className="space-y-3">
       {/* Received */}
@@ -406,7 +406,7 @@ function ConversationItemExample({ mini }: { mini?: boolean }) {
   );
 }
 
-function ActivityCardExample({ activity: _activity, mini }: { activity: Activity; mini?: boolean }) {
+function ActivityCardExample({ mini }: { activity: Activity; mini?: boolean }) {
   return (
     <div>
       <div className="flex gap-3 p-4 bg-surface rounded-xl border border-white/5">
