@@ -18,12 +18,12 @@ export function getSystemTheme(): Theme {
 }
 
 export function getInitialThemePreference(): ThemePreference {
-  if (typeof window === 'undefined') return 'system';
+  if (typeof window === 'undefined') return 'light';
 
   const savedTheme = window.localStorage.getItem('journeys-theme-preference');
   if (savedTheme === 'light' || savedTheme === 'dark' || savedTheme === 'system') return savedTheme;
 
-  return 'system';
+  return 'light';
 }
 
 export function useTheme() {
