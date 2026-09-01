@@ -68,7 +68,7 @@ function CityDetailComponent() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
 
         {/* Back Button */}
-        <Link to="/discover" search={{ city: undefined, place: undefined }}>
+        <Link to="/" search={{ city: undefined, place: undefined }}>
           <motion.button
             className="absolute top-12 left-6 p-2 bg-background/80 backdrop-blur-sm rounded-xl border border-white/10"
             whileTap={{ scale: 0.95 }}

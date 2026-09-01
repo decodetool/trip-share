@@ -10,7 +10,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { to: '/discover', icon: <Sparkles size={22} />, label: 'Discover' },
+  { to: '/', icon: <Sparkles size={22} />, label: 'Discover' },
   { to: '/trips', icon: <Plane size={22} />, label: 'Trips' },
   { to: '/map', icon: <MapPin size={22} />, label: 'Map' },
   { to: '/activity', icon: <Users size={22} />, label: 'Activity' },

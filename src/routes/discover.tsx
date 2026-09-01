@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router';
+import { createFileRoute, useLocation, useNavigate, useSearch } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
@@ -22,9 +22,11 @@ export const Route = createFileRoute('/discover')({
   },
 });
 
-function DiscoverComponent() {
+export function DiscoverComponent() {
   const navigate = useNavigate();
-  const searchParams = useSearch({ from: '/discover' });
+  const location = useLocation();
+  const searchParams = useSearch({ strict: false }) as { city?: string; place?: string };
+  const discoverPath = location.pathname === '/discover' ? '/discover' : '/';
 
   const { data: cities, isLoading } = useQuery({
     queryKey: ['cities'],
@@ -160,8 +162,8 @@ function DiscoverComponent() {
           city={selectedCity}
           places={allPlaces || []}
           isOpen={!!searchParams.city}
-          onClose={() => navigate({ to: '/discover', search: { city: undefined, place: undefined } })}
-          onPlaceClick={(placeId) => navigate({ to: '/discover', search: { city: searchParams.city, place: placeId } })}
+          onClose={() => navigate({ to: discoverPath, search: { city: undefined, place: undefined } })}
+          onPlaceClick={(placeId) => navigate({ to: discoverPath, search: { city: searchParams.city, place: placeId } })}
         />
       )}
 
@@ -170,7 +172,7 @@ function DiscoverComponent() {
         <PlaceDetailSheet
           place={selectedPlace}
           isOpen={!!searchParams.place}
-          onClose={() => navigate({ to: '/discover', search: { city: searchParams.city, place: undefined } })}
+          onClose={() => navigate({ to: discoverPath, search: { city: searchParams.city, place: undefined } })}
           categoryColor="#4ECDC4"
           categoryEmoji="📍"
         />
@@ -181,6 +183,8 @@ function DiscoverComponent() {
 
 function CityCard({ city, index }: { city: City; index: number }) {
   const navigate = useNavigate();
+  const location = useLocation();
+  const discoverPath = location.pathname === '/discover' ? '/discover' : '/';
 
   return (
     <motion.div
@@ -243,7 +247,7 @@ function CityCard({ city, index }: { city: City; index: number }) {
 
           {/* CTA */}
           <motion.button
-            onClick={() => navigate({ to: '/discover', search: { city: city.id, place: undefined } })}
+            onClick={() => navigate({ to: discoverPath, search: { city: city.id, place: undefined } })}
             className="mt-4 w-full py-3 bg-accent-teal text-surface rounded-2xl font-medium shadow-glow-teal"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
