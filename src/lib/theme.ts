@@ -23,7 +23,7 @@ export function getInitialThemePreference(): ThemePreference {
   const savedTheme = window.localStorage.getItem('journeys-theme-preference');
   if (savedTheme === 'light' || savedTheme === 'dark' || savedTheme === 'system') return savedTheme;
 
-  return 'light';
+  return 'system';
 }
 
 export function useTheme() {
