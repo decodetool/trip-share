@@ -1,0 +1,24 @@
+src/lib/theme.ts
+  s_add98a7fe6d99a::t_5ceda8c9c0ded2 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "c5ef94076b2b968a27a03ea5c38bab2bc38a19be",
+  "prompts": {},
+  "humans": {
+    "h_0dbcbba47c7061": {
+      "author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_add98a7fe6d99a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0591a-d413-74a3-bfd2-4f573c526b08",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  }
+}
