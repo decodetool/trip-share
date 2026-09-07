@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { mockActivities } from '@/lib/seed-data';
 import { Plane, MapPin, UserPlus, CheckCircle, Sparkles } from 'lucide-react';
 import type { Activity } from '@/types';
+import { Avatar } from '@/components/ui/Avatar';
+import { EmptyState } from '@/components/ui/EmptyState';
 
 export const Route = createFileRoute('/activity')({
   component: ActivityFeedComponent,
@@ -110,19 +112,12 @@ function ActivityFeedComponent() {
             className="flex gap-3 py-4 hover:bg-surface-secondary/60 transition-colors"
           >
             {/* Avatar */}
-            <div className="w-12 h-12 rounded-full overflow-hidden bg-surface flex-shrink-0">
-              {activity.userAvatar ? (
-                <img
-                  src={activity.userAvatar}
-                  alt={activity.userName}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full bg-accent-cyan flex items-center justify-center text-surface font-semibold">
-                  {activity.userName.charAt(0)}
-                </div>
-              )}
-            </div>
+            <Avatar
+              src={activity.userAvatar}
+              name={activity.userName}
+              size="lg"
+              fallback="cyan"
+            />
 
             {/* Activity Info */}
             <div className="flex-1 min-w-0">
@@ -140,17 +135,12 @@ function ActivityFeedComponent() {
 
       {/* Empty State (if no activities) */}
       {mockActivities.length === 0 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center py-20 px-6"
-        >
-          <Sparkles className="w-16 h-16 text-text-secondary/30 mx-auto mb-4" />
-          <h3 className="text-lg font-semibold text-text-primary mb-2">No activity yet</h3>
-          <p className="text-text-secondary">
-            Follow friends to see their travel adventures here
-          </p>
-        </motion.div>
+        <EmptyState
+          icon={<Sparkles className="h-16 w-16" />}
+          title="No activity yet"
+          description="Follow friends to see their travel adventures here"
+          className="px-6"
+        />
       )}
     </div>
   );

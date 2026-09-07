@@ -1,8 +1,12 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { mockConversations, currentUser } from '@/lib/seed-data';
-import { Search, MessageCircle } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { useState } from 'react';
+import { Avatar, AvatarGroup } from '@/components/ui/Avatar';
+import { CountBadge } from '@/components/ui/Badge';
+import { EmptyState } from '@/components/ui/EmptyState';
+import { SearchInput } from '@/components/ui/SearchInput';
 
 export const Route = createFileRoute('/messages/')({
   component: MessagesListComponent,
@@ -53,16 +57,11 @@ function MessagesListComponent() {
         </motion.h1>
 
         {/* Search Bar */}
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary" />
-          <input
-            type="text"
-            placeholder="Search conversations..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3.5 bg-surface rounded-2xl border border-border text-text-primary placeholder-text-secondary focus:border-accent-cyan focus:ring-2 focus:ring-accent-cyan/15 focus:outline-none transition-colors"
-          />
-        </div>
+        <SearchInput
+          value={searchQuery}
+          onChange={setSearchQuery}
+          placeholder="Search conversations..."
+        />
       </header>
 
       {/* Conversations List */}
@@ -91,45 +90,28 @@ function MessagesListComponent() {
                     {/* Avatar(s) */}
                     <div className="relative flex-shrink-0">
                       {isGroup ? (
-                        <div className="flex -space-x-2">
-                          {otherParticipants.slice(0, 2).map((participant, i) => (
-                            <div
-                              key={i}
-                              className="w-12 h-12 rounded-full border-2 border-background overflow-hidden bg-surface"
-                            >
-                              {participant.avatar ? (
-                                <img
-                                  src={participant.avatar}
-                                  alt={participant.name}
-                                  className="w-full h-full object-cover"
-                                />
-                              ) : (
-                                <div className="w-full h-full bg-accent-cyan flex items-center justify-center text-surface font-semibold">
-                                  {participant.name.charAt(0)}
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <div className="w-12 h-12 rounded-full overflow-hidden bg-surface">
-                          {otherParticipants[0].avatar ? (
-                            <img
-                              src={otherParticipants[0].avatar}
-                              alt={otherParticipants[0].name}
-                              className="w-full h-full object-cover"
+                        <AvatarGroup size="lg">
+                          {otherParticipants.slice(0, 2).map((participant) => (
+                            <Avatar
+                              key={participant.id}
+                              src={participant.avatar}
+                              name={participant.name}
+                              size="lg"
+                              fallback="cyan"
+                              bordered
                             />
-                          ) : (
-                            <div className="w-full h-full bg-accent-cyan flex items-center justify-center text-surface font-semibold">
-                              {otherParticipants[0].name.charAt(0)}
-                            </div>
-                          )}
-                        </div>
+                          ))}
+                        </AvatarGroup>
+                      ) : (
+                        <Avatar
+                          src={otherParticipants[0].avatar}
+                          name={otherParticipants[0].name}
+                          size="lg"
+                          fallback="cyan"
+                        />
                       )}
                       {conversation.unreadCount > 0 && (
-                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-accent-teal rounded-full flex items-center justify-center text-surface text-xs font-bold">
-                          {conversation.unreadCount}
-                        </div>
+                        <CountBadge count={conversation.unreadCount} />
                       )}
                     </div>
 
@@ -167,15 +149,12 @@ function MessagesListComponent() {
             })}
           </div>
         ) : (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-20 px-6"
-          >
-            <MessageCircle className="w-16 h-16 text-text-secondary/30 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-text-primary mb-2">No conversations</h3>
-            <p className="text-text-secondary">Start chatting with your travel buddies!</p>
-          </motion.div>
+          <EmptyState
+            icon={<MessageCircle className="h-16 w-16" />}
+            title="No conversations"
+            description="Start chatting with your travel buddies!"
+            className="px-6"
+          />
         )}
       </div>
     </div>

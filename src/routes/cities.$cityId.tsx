@@ -2,7 +2,11 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { mockApi } from '@/lib/mock-api';
-import { ArrowLeft, Plus, Star } from 'lucide-react';
+import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
+import { BackButton } from '@/components/ui/IconButton';
+import { StatCard } from '@/components/ui/StatCard';
+import { Plus, Star } from 'lucide-react';
 import { useState } from 'react';
 import { PlaceDetailSheet } from '@/components/PlaceDetailSheet';
 import type { Category } from '@/types';
@@ -69,12 +73,11 @@ function CityDetailComponent() {
 
         {/* Back Button */}
         <Link to="/" search={{ city: undefined, place: undefined }}>
-          <motion.button
-            className="absolute top-12 left-6 p-2 bg-background/80 backdrop-blur-sm rounded-xl border border-white/10"
+          <BackButton
+            variant="overlay"
+            className="absolute left-6 top-12"
             whileTap={{ scale: 0.95 }}
-          >
-            <ArrowLeft className="w-5 h-5 text-text-primary" />
-          </motion.button>
+          />
         </Link>
 
         {/* City Info */}
@@ -111,12 +114,14 @@ function CityDetailComponent() {
           <h2 className="text-lg font-semibold text-text-primary mb-3">Highlights</h2>
           <div className="flex flex-wrap gap-2">
             {city.tags.map((tag) => (
-              <span
+              <Badge
                 key={tag}
-                className="px-3 py-1.5 bg-surface rounded-full text-sm text-text-primary border border-white/10"
+                variant="surface"
+                size="md"
+                className="border-white/10 bg-surface text-text-primary"
               >
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
         </div>
@@ -191,14 +196,10 @@ function CityDetailComponent() {
 
         {/* CTA */}
         <Link to="/itinerary">
-          <motion.button
-            className="w-full py-4 bg-accent-teal text-background rounded-2xl font-medium flex items-center justify-center gap-2 mt-6"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Plus className="w-5 h-5" />
+          <Button fullWidth size="lg" className="mt-6">
+            <Plus className="h-5 w-5" />
             Start Planning Trip
-          </motion.button>
+          </Button>
         </Link>
       </div>
 
@@ -213,18 +214,5 @@ function CityDetailComponent() {
         />
       )}
     </div>
-  );
-}
-
-function StatCard({ label, value }: { label: string; value: string }) {
-  return (
-    <motion.div
-      className="bg-surface rounded-2xl p-4 border border-white/5 text-center"
-      whileHover={{ y: -2 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-    >
-      <p className="text-2xl font-bold text-text-primary font-mono">{value}</p>
-      <p className="text-text-secondary text-xs mt-1">{label}</p>
-    </motion.div>
   );
 }

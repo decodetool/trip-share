@@ -4,7 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { mockApi } from '@/lib/mock-api';
 import type { City } from '@/types';
-import { Search, MapPin, X } from 'lucide-react';
+import { MapPin } from 'lucide-react';
+import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
+import { EmptyState } from '@/components/ui/EmptyState';
+import { SearchInput } from '@/components/ui/SearchInput';
 import { CityCardSkeleton } from '@/components/LoadingSkeleton';
 import { CityDetailSheet } from '@/components/CityDetailSheet';
 import { PlaceDetailSheet } from '@/components/PlaceDetailSheet';
@@ -85,29 +89,16 @@ export function DiscoverComponent() {
 
         {/* Search Bar */}
         <motion.div
-          className="relative"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary" />
-          <input
-            type="text"
-            placeholder="Search cities, countries, or tags..."
+          <SearchInput
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-12 py-3.5 bg-surface rounded-2xl border border-border text-text-primary placeholder-text-secondary focus:border-accent-cyan focus:ring-2 focus:ring-accent-cyan/15 focus:outline-none transition-colors"
+            onChange={setSearchQuery}
+            clearable
+            placeholder="Search cities, countries, or tags..."
           />
-          {searchQuery && (
-            <motion.button
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              onClick={() => setSearchQuery('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-text-primary/5 rounded-lg transition-colors"
-            >
-              <X className="w-4 h-4 text-text-secondary" />
-            </motion.button>
-          )}
         </motion.div>
       </header>
 
@@ -141,17 +132,16 @@ export function DiscoverComponent() {
               ))}
             </div>
           ) : (
-            <motion.div
+            <EmptyState
               key="no-results"
+              icon={<MapPin className="h-16 w-16" />}
+              title="No cities found"
+              description="Try adjusting your search query"
+              className="py-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="text-center py-12"
-            >
-              <MapPin className="w-16 h-16 text-text-secondary/30 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-text-primary mb-2">No cities found</h3>
-              <p className="text-text-secondary">Try adjusting your search query</p>
-            </motion.div>
+            />
           )}
         </AnimatePresence>
       </div>
@@ -236,24 +226,20 @@ function CityCard({ city, index }: { city: City; index: number }) {
           {/* Tags */}
           <div className="flex flex-wrap gap-2">
             {city.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-background rounded-full text-xs text-text-secondary border border-border"
-              >
+              <Badge key={tag} variant="surface">
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
 
           {/* CTA */}
-          <motion.button
+          <Button
+            fullWidth
+            className="mt-4 text-surface shadow-glow-teal"
             onClick={() => navigate({ to: discoverPath, search: { city: city.id, place: undefined } })}
-            className="mt-4 w-full py-3 bg-accent-teal text-surface rounded-2xl font-medium shadow-glow-teal"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
           >
             Plan Trip
-          </motion.button>
+          </Button>
         </div>
       </div>
     </motion.div>

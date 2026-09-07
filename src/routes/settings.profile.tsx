@@ -1,8 +1,11 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Camera } from 'lucide-react';
+import { Camera } from 'lucide-react';
 import { currentUser } from '@/lib/seed-data';
 import { useState } from 'react';
+import { Avatar } from '@/components/ui/Avatar';
+import { Button } from '@/components/ui/Button';
+import { BackButton } from '@/components/ui/IconButton';
 
 export const Route = createFileRoute('/settings/profile')({
   component: ProfileSettingsComponent,
@@ -25,14 +28,7 @@ function ProfileSettingsComponent() {
       {/* Header */}
       <header className="px-6 pt-12 pb-6 border-b border-white/5">
         <div className="flex items-center gap-4 mb-4">
-          <motion.button
-            onClick={() => navigate({ to: '/settings' })}
-            className="p-2 hover:bg-white/5 rounded-xl transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ArrowLeft size={20} className="text-text-primary" />
-          </motion.button>
+          <BackButton onClick={() => navigate({ to: '/settings' })} />
           <motion.h1
             className="text-2xl font-bold text-text-primary"
             initial={{ opacity: 0, y: -20 }}
@@ -48,19 +44,12 @@ function ProfileSettingsComponent() {
         {/* Avatar */}
         <div className="flex justify-center">
           <div className="relative">
-            <div className="w-24 h-24 rounded-full overflow-hidden bg-gradient-to-br from-accent-teal to-accent-cyan">
-              {currentUser.avatar ? (
-                <img
-                  src={currentUser.avatar}
-                  alt={currentUser.name}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-white text-3xl font-semibold">
-                  {currentUser.name.charAt(0)}
-                </div>
-              )}
-            </div>
+            <Avatar
+              src={currentUser.avatar}
+              name={currentUser.name}
+              size="2xl"
+              fallback="gradient"
+            />
             <motion.button
               className="absolute bottom-0 right-0 p-2 bg-accent-cyan rounded-full text-background shadow-lg"
               whileHover={{ scale: 1.1 }}
@@ -106,14 +95,9 @@ function ProfileSettingsComponent() {
         </div>
 
         {/* Save Button */}
-        <motion.button
-          onClick={handleSave}
-          className="w-full px-6 py-3 bg-accent-teal text-background rounded-2xl font-medium"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
+        <Button fullWidth onClick={handleSave}>
           Save Changes
-        </motion.button>
+        </Button>
       </div>
     </div>
   );

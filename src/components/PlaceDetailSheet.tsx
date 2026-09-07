@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import { BottomSheet } from './ui/BottomSheet';
+import { Button } from '@/components/ui/Button';
 import { MapPin, Clock, Star, Plus, ExternalLink } from 'lucide-react';
 import type { Place } from '@/types';
 import { useState } from 'react';
@@ -134,25 +134,20 @@ export function PlaceDetailSheet({
 
         {/* Actions */}
         <div className="flex gap-2.5">
-          <motion.button
+          <Button
+            size="sm"
+            className="flex-1"
             onClick={() => {
               onAddToItinerary?.(place.id);
               onClose();
             }}
-            className="flex-1 py-2.5 bg-accent-teal text-background rounded-2xl font-medium flex items-center justify-center gap-2"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="h-4 w-4" />
             Add to Itinerary
-          </motion.button>
-          <motion.button
-            className="p-2.5 bg-surface border border-white/10 rounded-2xl"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <ExternalLink className="w-4 h-4 text-text-primary" />
-          </motion.button>
+          </Button>
+          <Button variant="secondary" size="icon" className="shrink-0">
+            <ExternalLink className="h-4 w-4 text-text-primary" />
+          </Button>
         </div>
         </div>
       </div>

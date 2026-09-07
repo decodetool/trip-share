@@ -1,8 +1,11 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { mockConversations, currentUser } from '@/lib/seed-data';
-import { ArrowLeft, Send, Image as ImageIcon, Smile } from 'lucide-react';
+import { Send, Image as ImageIcon, Smile } from 'lucide-react';
 import { useState } from 'react';
+import { Avatar } from '@/components/ui/Avatar';
+import { Button } from '@/components/ui/Button';
+import { BackButton } from '@/components/ui/IconButton';
 
 export const Route = createFileRoute('/messages/$conversationId')({
   component: ConversationComponent,
@@ -87,29 +90,19 @@ function ConversationComponent() {
       {/* Header */}
       <header className="px-4 py-3 border-b border-white/5 bg-surface/50 backdrop-blur-xl">
         <div className="flex items-center gap-3">
-          <motion.button
-            onClick={() => navigate({ to: '/messages' })}
-            className="p-2 hover:bg-white/5 rounded-xl transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ArrowLeft size={20} className="text-text-primary" />
-          </motion.button>
+          <BackButton onClick={() => navigate({ to: '/messages' })} />
 
           {/* Avatar */}
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-surface">
-            {!isGroup && otherParticipants[0].avatar ? (
-              <img
-                src={otherParticipants[0].avatar}
-                alt={otherParticipants[0].name}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-accent-teal to-accent-cyan flex items-center justify-center text-white font-semibold">
-                {displayName.charAt(0)}
-              </div>
-            )}
-          </div>
+          {!isGroup ? (
+            <Avatar
+              src={otherParticipants[0].avatar}
+              name={otherParticipants[0].name}
+              size="md"
+              fallback="gradient"
+            />
+          ) : (
+            <Avatar name={displayName} size="md" fallback="gradient" />
+          )}
 
           <div className="flex-1 min-w-0">
             <h1 className="text-base font-semibold text-text-primary truncate">{displayName}</h1>
@@ -135,19 +128,12 @@ function ConversationComponent() {
             >
               {/* Avatar */}
               {!isCurrentUser && (
-                <div className="w-8 h-8 rounded-full overflow-hidden bg-surface flex-shrink-0">
-                  {message.senderAvatar ? (
-                    <img
-                      src={message.senderAvatar}
-                      alt={message.senderName}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-accent-teal to-accent-cyan flex items-center justify-center text-white text-xs font-semibold">
-                      {message.senderName.charAt(0)}
-                    </div>
-                  )}
-                </div>
+                <Avatar
+                  src={message.senderAvatar}
+                  name={message.senderName}
+                  size="sm"
+                  fallback="gradient"
+                />
               )}
 
               {/* Message Bubble */}
@@ -202,15 +188,14 @@ function ConversationComponent() {
             className="flex-1 px-4 py-2.5 bg-background rounded-2xl border border-white/5 text-text-primary placeholder-text-secondary focus:border-accent-cyan focus:outline-none transition-colors"
           />
 
-          <motion.button
+          <Button
+            size="icon"
             onClick={handleSend}
             disabled={!messageText.trim()}
-            className="p-2.5 bg-accent-teal text-background rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="text-background"
           >
             <Send size={18} />
-          </motion.button>
+          </Button>
         </div>
       </div>
     </div>

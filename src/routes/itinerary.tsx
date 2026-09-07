@@ -2,6 +2,8 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { mockApi } from '@/lib/mock-api';
+import { Button, Fab } from '@/components/ui/Button';
+import { EmptyState } from '@/components/ui/EmptyState';
 import { Calendar, Clock, MapPin, Plus } from 'lucide-react';
 import type { ItineraryItem, Place } from '@/types';
 
@@ -62,38 +64,34 @@ function ItineraryComponent() {
 
         {/* Empty State */}
         {(!itineraryItems || itineraryItems.length === 0) && (
-          <motion.div
-            className="flex flex-col items-center justify-center py-16 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            <Calendar className="w-16 h-16 text-text-secondary/30 mb-4" />
-            <h3 className="text-lg font-semibold text-text-primary mb-2">No plans yet</h3>
-            <p className="text-text-secondary mb-6">Start adding places to your itinerary</p>
-            <motion.button
-              className="px-6 py-3 bg-accent-teal text-background rounded-2xl font-medium"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Plus className="w-5 h-5 inline mr-2" />
-              Add Place
-            </motion.button>
-          </motion.div>
+          <EmptyState
+            className="flex flex-col items-center justify-center py-16"
+            icon={<Calendar className="h-16 w-16" />}
+            title="No plans yet"
+            description="Start adding places to your itinerary"
+            action={
+              <Button>
+                <Plus className="h-5 w-5" />
+                Add Place
+              </Button>
+            }
+          />
         )}
       </div>
 
       {/* Floating FAB */}
       {itineraryItems && itineraryItems.length > 0 && (
-        <motion.button
-          className="fixed bottom-24 right-6 w-14 h-14 bg-accent-teal rounded-full shadow-glow-cyan flex items-center justify-center z-40"
+        <Fab
+          glow="cyan"
+          className="z-40 h-14 w-14 p-0 text-background"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <Plus className="w-6 h-6 text-background" />
-        </motion.button>
+          <Plus className="h-6 w-6" />
+        </Fab>
       )}
     </div>
   );

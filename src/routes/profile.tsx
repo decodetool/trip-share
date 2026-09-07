@@ -1,5 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
+import { Avatar } from '@/components/ui/Avatar';
+import { Button } from '@/components/ui/Button';
+import { IconButton } from '@/components/ui/IconButton';
+import { StatCard } from '@/components/ui/StatCard';
 import { MapPin, Settings, Download } from 'lucide-react';
 import { useState } from 'react';
 
@@ -47,19 +51,18 @@ function ProfileComponent() {
           animate={{ opacity: 1, y: 0 }}
           className="flex items-center gap-4"
         >
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent-teal to-accent-cyan flex items-center justify-center text-4xl">
-            👤
-          </div>
+          <Avatar size="xl">👤</Avatar>
           <div className="flex-1">
             <h1 className="text-2xl font-bold text-text-primary">Alex Rivera</h1>
             <p className="text-text-secondary">alex.rivera@email.com</p>
           </div>
-          <motion.button
-            className="p-2 bg-surface rounded-xl border border-white/5"
+          <IconButton
+            label="Settings"
+            className="border border-white/5 bg-surface"
             whileTap={{ scale: 0.95 }}
           >
-            <Settings className="w-5 h-5 text-text-primary" />
-          </motion.button>
+            <Settings className="h-5 w-5 text-text-primary" />
+          </IconButton>
         </motion.div>
       </header>
 
@@ -128,31 +131,13 @@ function ProfileComponent() {
               </p>
             </div>
           ) : (
-            <motion.button
-              onClick={handleOfflineDownload}
-              className="w-full py-3 bg-accent-teal text-background rounded-2xl font-medium flex items-center justify-center gap-2"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Download className="w-5 h-5" />
+            <Button fullWidth onClick={handleOfflineDownload}>
+              <Download className="h-5 w-5" />
               Download Offline Pack
-            </motion.button>
+            </Button>
           )}
         </motion.div>
       </section>
     </div>
-  );
-}
-
-function StatCard({ label, value }: { label: string; value: string }) {
-  return (
-    <motion.div
-      className="bg-surface rounded-2xl p-4 border border-white/5 text-center"
-      whileHover={{ y: -2 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-    >
-      <p className="text-2xl font-bold text-text-primary font-mono">{value}</p>
-      <p className="text-text-secondary text-xs mt-1">{label}</p>
-    </motion.div>
   );
 }

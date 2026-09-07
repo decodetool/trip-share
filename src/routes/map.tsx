@@ -6,6 +6,8 @@ import { mockApi } from '@/lib/mock-api';
 import { useMapStore } from '@/stores/useMapStore';
 import { Filter } from 'lucide-react';
 import type { Category } from '@/types';
+import { CountBadge } from '@/components/ui/Badge';
+import { IconButton } from '@/components/ui/IconButton';
 import { Map } from '@/components/Map';
 import { PlaceDetailSheet } from '@/components/PlaceDetailSheet';
 
@@ -85,18 +87,15 @@ function MapComponent() {
           </motion.h1>
 
           {/* Filter Button */}
-          <motion.button
-            className="p-2.5 bg-surface rounded-xl border border-border hover:border-text-secondary/40 transition-colors relative focus-ring"
+          <IconButton
+            label="Toggle filters"
+            variant="surface"
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowFilters(!showFilters)}
           >
-            <Filter className="w-5 h-5 text-text-primary" />
-            {activeFilters.length > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-accent-teal rounded-full text-xs flex items-center justify-center text-surface font-bold">
-                {activeFilters.length}
-              </span>
-            )}
-          </motion.button>
+            <Filter className="h-5 w-5 text-text-primary" />
+            {activeFilters.length > 0 && <CountBadge count={activeFilters.length} />}
+          </IconButton>
         </div>
 
         {/* Filter Chips */}

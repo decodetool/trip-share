@@ -2,6 +2,9 @@ import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
 import { mockApi } from '@/lib/mock-api';
+import { Avatar, AvatarGroup } from '@/components/ui/Avatar';
+import { Button, Fab } from '@/components/ui/Button';
+import { EmptyState } from '@/components/ui/EmptyState';
 import { Tabs } from '@/components/ui/Tabs';
 import { MapPin, Users, Plus, Plane, ArrowRight } from 'lucide-react';
 import type { Trip } from '@/types';
@@ -90,14 +93,9 @@ function TripsListComponent() {
   return (
     <div className="min-h-screen">
       {/* Create Trip Button - Bottom right for thumb reach */}
-      <motion.button
-        onClick={() => alert('Create trip wizard coming soon!')}
-        className="fixed bottom-24 right-6 z-50 p-4 rounded-full bg-accent-teal text-surface shadow-glow-teal focus-ring"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
+      <Fab onClick={() => alert('Create trip wizard coming soon!')}>
         <Plus size={24} />
-      </motion.button>
+      </Fab>
 
       {/* Header */}
       <header className="px-6 pt-12 pb-4">
@@ -154,29 +152,25 @@ function TripsListComponent() {
             </AnimatePresence>
           </div>
         ) : (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-20"
-          >
-            <Plane className="w-20 h-20 text-text-secondary/30 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-text-primary mb-2">
-              {activeFilter === 'all' ? 'No trips yet' : `No ${activeFilter} trips`}
-            </h3>
-            <p className="text-text-secondary mb-6">
-              {activeFilter === 'all'
+          <EmptyState
+            icon={<Plane className="h-20 w-20" />}
+            title={activeFilter === 'all' ? 'No trips yet' : `No ${activeFilter} trips`}
+            description={
+              activeFilter === 'all'
                 ? 'Start planning your next adventure!'
-                : 'Adjust your filter or create a new trip'}
-            </p>
-            <motion.button
-              onClick={() => alert('Create trip wizard coming soon!')}
-              className="px-6 py-3 bg-accent-teal text-surface rounded-2xl font-medium shadow-glow-teal"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Create Your First Trip
-            </motion.button>
-          </motion.div>
+                : 'Adjust your filter or create a new trip'
+            }
+            action={
+              <Button
+                className="text-surface shadow-glow-teal"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => alert('Create trip wizard coming soon!')}
+              >
+                Create Your First Trip
+              </Button>
+            }
+          />
         )}
       </div>
     </div>
@@ -248,27 +242,18 @@ function TripTimelineCard({
             {trip.travelers && trip.travelers.length > 0 && (
               <div className="flex items-center gap-1.5">
                 <Users size={14} className="text-text-secondary" />
-                <div className="flex -space-x-1.5">
-                  {trip.travelers.slice(0, 3).map((traveler, i) => (
-                    <div
-                      key={i}
-                      className="w-6 h-6 rounded-full border-2 border-background overflow-hidden bg-surface"
-                    >
-                      {traveler.avatar ? (
-                        <img src={traveler.avatar} alt={traveler.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <div className="w-full h-full bg-accent-cyan flex items-center justify-center text-surface text-[10px] font-semibold">
-                          {traveler.name.charAt(0)}
-                        </div>
-                      )}
-                    </div>
+                <AvatarGroup size="xs" max={3} total={trip.travelers.length}>
+                  {trip.travelers.map((traveler) => (
+                    <Avatar
+                      key={traveler.id ?? traveler.name}
+                      src={traveler.avatar}
+                      name={traveler.name}
+                      size="xs"
+                      fallback="cyan"
+                      bordered
+                    />
                   ))}
-                  {trip.travelers.length > 3 && (
-                    <div className="w-6 h-6 rounded-full border-2 border-background bg-surface-secondary flex items-center justify-center text-text-secondary text-[10px] font-semibold">
-                      +{trip.travelers.length - 3}
-                    </div>
-                  )}
-                </div>
+                </AvatarGroup>
               </div>
             )}
 

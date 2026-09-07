@@ -3,13 +3,15 @@ import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { mockApi } from '@/lib/mock-api';
 import { Tabs } from '@/components/ui/Tabs';
+import { Avatar, AvatarGroup } from '@/components/ui/Avatar';
+import { Button } from '@/components/ui/Button';
+import { BackButton, IconButton } from '@/components/ui/IconButton';
 import type { ItineraryItem, Place, Trip } from '@/types';
 import {
   MapPin,
   Calendar,
   Users,
   DollarSign,
-  ArrowLeft,
   ArrowRight,
   Edit,
   Share2,
@@ -90,32 +92,24 @@ function TripDetailComponent() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
 
         {/* Back Button */}
-        <motion.button
+        <BackButton
+          variant="overlay"
+          className="absolute top-6 left-6"
           onClick={() => navigate({ to: '/trips', search: { filter: 'all' } })}
-          className="absolute top-6 left-6 p-2 bg-background/80 backdrop-blur-sm rounded-xl border border-white/10 text-text-primary"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <ArrowLeft size={20} />
-        </motion.button>
+        />
 
         {/* Action Buttons */}
         <div className="absolute top-6 right-6 flex gap-2">
-          <motion.button
-            className="p-2 bg-background/80 backdrop-blur-sm rounded-xl border border-white/10 text-text-primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <IconButton label="Share trip" variant="overlay">
             <Share2 size={20} />
-          </motion.button>
-          <motion.button
+          </IconButton>
+          <IconButton
+            label="Edit trip"
+            variant="overlay"
             onClick={() => alert('Edit trip coming soon!')}
-            className="p-2 bg-background/80 backdrop-blur-sm rounded-xl border border-white/10 text-text-primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             <Edit size={20} />
-          </motion.button>
+          </IconButton>
         </div>
 
         {/* Trip Info Overlay */}
@@ -198,22 +192,19 @@ function OverviewTab({
             <div>
               <p className="text-text-secondary text-sm">Travelers</p>
               <div className="flex items-center gap-2 mt-1">
-                <div className="flex -space-x-2">
-                  {trip.travelers.map((traveler, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full border-2 border-surface overflow-hidden bg-surface"
-                    >
-                      {traveler.avatar ? (
-                        <img src={traveler.avatar} alt={traveler.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-accent-teal to-accent-cyan flex items-center justify-center text-white text-xs font-semibold">
-                          {traveler.name.charAt(0)}
-                        </div>
-                      )}
-                    </div>
+                <AvatarGroup size="sm">
+                  {trip.travelers.map((traveler) => (
+                    <Avatar
+                      key={traveler.id}
+                      src={traveler.avatar}
+                      name={traveler.name}
+                      size="sm"
+                      fallback="gradient"
+                      bordered
+                      className="border-surface"
+                    />
                   ))}
-                </div>
+                </AvatarGroup>
                 <span className="text-text-primary font-medium">
                   {trip.travelers.map((traveler) => traveler.name).join(', ')}
                 </span>
@@ -395,13 +386,9 @@ function SharingTab({ trip }: { trip: Trip }) {
             </div>
           ))}
         </div>
-        <motion.button
-          className="w-full mt-4 px-4 py-3 bg-white/5 hover:bg-white/10 rounded-2xl text-text-primary font-medium transition-colors"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
+        <Button fullWidth variant="secondary" className="mt-4">
           Invite Friends
-        </motion.button>
+        </Button>
       </div>
     </div>
   );

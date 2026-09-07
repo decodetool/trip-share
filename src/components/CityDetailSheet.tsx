@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
 import { MapPin, Calendar } from 'lucide-react';
 import type { City, Place } from '@/types';
+import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
 import { BottomSheet } from './ui/BottomSheet';
 import { useState } from 'react';
 
@@ -62,12 +63,9 @@ export function CityDetailSheet({ city, places, isOpen, onClose }: CityDetailShe
           <h3 className="text-xs font-semibold text-text-primary mb-2">Highlights</h3>
           <div className="flex flex-wrap gap-1.5">
             {city.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2.5 py-1 bg-accent-cyan/10 rounded-full text-xs text-accent-cyan border border-accent-cyan/20"
-              >
+              <Badge key={tag} variant="outlineCyan" size="sm">
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
         </div>
@@ -91,13 +89,9 @@ export function CityDetailSheet({ city, places, isOpen, onClose }: CityDetailShe
         </div>
 
         {/* CTA */}
-        <motion.button
-          className="w-full py-2.5 bg-accent-teal text-background rounded-2xl font-semibold"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
+        <Button fullWidth size="sm" className="font-semibold">
           Plan Your Trip
-        </motion.button>
+        </Button>
       </div>
       </div>
     </BottomSheet>

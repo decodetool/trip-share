@@ -1,6 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { Users, UserPlus, Clock } from 'lucide-react';
+import { Avatar, AvatarGroup } from '@/components/ui/Avatar';
+import { Badge } from '@/components/ui/Badge';
+import { IconButton } from '@/components/ui/IconButton';
 
 export const Route = createFileRoute('/friends')({
   component: FriendsComponent,
@@ -86,13 +89,9 @@ function FriendsComponent() {
             <h1 className="text-3xl font-bold text-text-primary mb-2">Friends</h1>
             <p className="text-text-secondary">Shared trips and activity</p>
           </div>
-          <motion.button
-            className="p-3 bg-accent-teal rounded-2xl"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <UserPlus className="w-5 h-5 text-background" />
-          </motion.button>
+          <IconButton label="Add friend" variant="primary">
+            <UserPlus className="h-5 w-5 text-background" />
+          </IconButton>
         </motion.div>
       </header>
 
@@ -126,11 +125,11 @@ function FriendsComponent() {
 }
 
 function SharedTripCard({ trip, index }: { trip: typeof mockSharedTrips[0]; index: number }) {
-  const roleColors = {
-    owner: 'bg-accent-cyan/20 text-accent-cyan',
-    editor: 'bg-accent-teal/20 text-accent-teal',
-    viewer: 'bg-white/10 text-text-secondary',
-  };
+  const roleVariants = {
+    owner: 'cyan',
+    editor: 'teal',
+    viewer: 'muted',
+  } as const;
 
   return (
     <motion.div
@@ -147,24 +146,28 @@ function SharedTripCard({ trip, index }: { trip: typeof mockSharedTrips[0]; inde
             {trip.city} • {trip.dates}
           </p>
         </div>
-        <span className={`px-3 py-1 rounded-full text-xs font-medium ${roleColors[trip.role]}`}>
+        <Badge
+          variant={roleVariants[trip.role]}
+          className={trip.role === 'viewer' ? 'bg-white/10' : undefined}
+        >
           {trip.role}
-        </span>
+        </Badge>
       </div>
 
       {/* Avatars */}
       <div className="flex items-center gap-2">
-        <div className="flex -space-x-2">
+        <AvatarGroup size="sm">
           {trip.sharedWith.map((user) => (
-            <div
+            <Avatar
               key={user.id}
-              className="w-8 h-8 rounded-full bg-surface-secondary border-2 border-surface flex items-center justify-center text-lg"
-              title={user.name}
+              size="sm"
+              bordered
+              className="border-surface bg-surface-secondary text-lg"
             >
               {user.avatar}
-            </div>
+            </Avatar>
           ))}
-        </div>
+        </AvatarGroup>
         <span className="text-text-secondary text-xs">
           {trip.sharedWith.length} {trip.sharedWith.length === 1 ? 'person' : 'people'}
         </span>

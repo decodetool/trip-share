@@ -10,6 +10,9 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { Tabs } from '@/components/ui/Tabs';
+import { Avatar, AvatarGroup } from '@/components/ui/Avatar';
+import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
 import type { Trip, Message, Activity } from '@/types';
 
 export const Route = createFileRoute('/components/')({
@@ -494,23 +497,15 @@ function DateBadgeExample({ mini }: { mini?: boolean }) {
 }
 
 function AvatarGroupExample({ mini }: { mini?: boolean }) {
-  const users = ['S', 'A', 'M'];
+  const users = ['Sarah', 'Alex', 'Mike'];
 
   return (
     <div>
-      <div className="flex -space-x-2">
-        {users.map((initial, i) => (
-          <div
-            key={i}
-            className="w-10 h-10 rounded-full border-2 border-background bg-gradient-to-br from-accent-teal to-accent-cyan flex items-center justify-center text-white font-semibold"
-          >
-            {initial}
-          </div>
+      <AvatarGroup size="md" max={3} total={5}>
+        {users.map((name) => (
+          <Avatar key={name} name={name} size="md" fallback="gradient" bordered />
         ))}
-        <div className="w-10 h-10 rounded-full border-2 border-background bg-white/10 flex items-center justify-center text-text-secondary text-sm font-semibold">
-          +2
-        </div>
-      </div>
+      </AvatarGroup>
 
       {!mini && (
         <div className="text-sm text-text-secondary mt-4">
@@ -524,15 +519,9 @@ function AvatarGroupExample({ mini }: { mini?: boolean }) {
 function StatusBadgesExample({ mini }: { mini?: boolean }) {
   return (
     <div className="flex gap-2 flex-wrap">
-      <span className="px-3 py-1 bg-accent-cyan/20 text-accent-cyan text-xs font-semibold rounded-full">
-        Upcoming
-      </span>
-      <span className="px-3 py-1 bg-accent-teal/20 text-accent-teal text-xs font-semibold rounded-full">
-        Planning
-      </span>
-      <span className="px-3 py-1 bg-text-secondary/20 text-text-secondary text-xs font-semibold rounded-full">
-        Completed
-      </span>
+      <Badge variant="cyan">Upcoming</Badge>
+      <Badge variant="teal">Planning</Badge>
+      <Badge variant="muted">Completed</Badge>
 
       {!mini && (
         <div className="w-full text-sm text-text-secondary mt-2">
@@ -546,15 +535,15 @@ function StatusBadgesExample({ mini }: { mini?: boolean }) {
 function ButtonsExample({ mini }: { mini?: boolean }) {
   return (
     <div className="space-y-3">
-      <button className="w-full px-6 py-3 bg-accent-teal text-background rounded-2xl font-medium hover:scale-105 transition-transform">
+      <Button fullWidth className="text-background">
         Primary Button
-      </button>
-      <button className="w-full px-6 py-3 bg-surface border border-white/10 text-text-primary rounded-2xl font-medium hover:bg-white/5 transition-colors">
+      </Button>
+      <Button fullWidth variant="secondary">
         Secondary Button
-      </button>
-      <button className="w-full px-6 py-3 border border-accent-cyan text-accent-cyan rounded-2xl font-medium hover:bg-accent-cyan/10 transition-colors">
+      </Button>
+      <Button fullWidth variant="outline">
         Outline Button
-      </button>
+      </Button>
 
       {!mini && (
         <div className="text-sm text-text-secondary mt-4">
