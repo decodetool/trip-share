@@ -1,0 +1,120 @@
+src/routes/messages.$conversationId.tsx
+  s_13cf9f7d9035f1::t_fa325f048e39e0 93,96-105
+  s_13cf9f7d9035f1::t_22fa5a3bcda508 131-136
+  s_13cf9f7d9035f1::t_1f0eaa2825835e 191-192,195,198
+  s_13cf9f7d9035f1::t_3eed38d7a284e4 4,6-8
+src/components/CityDetailSheet.tsx
+  s_13cf9f7d9035f1::t_78e326fe882442 94
+  s_13cf9f7d9035f1::t_ed842e0556e95c 66,68
+  s_13cf9f7d9035f1::t_4f1027923bbf84 3-4
+  s_4e438dd7d00446::t_a486ef0da6777b 92
+src/components/ui/IconButton.tsx
+  s_4e438dd7d00446::t_8ed56d05d82015 36-37,46-47
+  s_4e438dd7d00446::t_03468d2ebcfd0f 1-35,38-45,48-72
+src/routes/settings.profile.tsx
+  s_13cf9f7d9035f1::t_077006e8807680 47-52
+  s_13cf9f7d9035f1::t_f44ba4be48d7e3 31
+  s_13cf9f7d9035f1::t_cc3172d604d27d 3,6-8
+  s_13cf9f7d9035f1::t_36acf9f08c583e 98,100
+src/components/ui/StatCard.tsx
+  s_4e438dd7d00446::t_1192c91b700686 1-31
+src/routes/trips.index.tsx
+  s_4e438dd7d00446::t_1dcd461d455a78 155-159,161-173
+  s_4e438dd7d00446::t_75d0ced0f49acf 96,98
+  s_4e438dd7d00446::t_6fed690a87be28 245-254,256
+  s_4e438dd7d00446::t_b83c4e1fb52755 5-7
+src/routes/profile.tsx
+  s_4e438dd7d00446::t_7199054acf76d8 54,59-61,64-65
+  s_4e438dd7d00446::t_879e4e12930e14 3-6
+  s_4e438dd7d00446::t_7b806a415270dc 134-135,137
+src/routes/cities.$cityId.tsx
+  s_4e438dd7d00446::t_1fc7bb1ba8580e 76-78,80
+  s_4e438dd7d00446::t_8cbdbae73cb42f 199-200,202
+  s_4e438dd7d00446::t_0d7c14395c0066 117,119-121,124
+  s_4e438dd7d00446::t_f795c900231475 5-9
+src/routes/messages.index.tsx
+  s_13cf9f7d9035f1::t_27c662a40b0109 4,6-9
+  s_13cf9f7d9035f1::t_4322c3c8b21ad5 60-64
+  s_13cf9f7d9035f1::t_19ec7ee2002010 93-102,104,106-111,114
+  s_13cf9f7d9035f1::t_a8defdbd3cacdb 152-157
+src/components/ui/EmptyState.tsx
+  s_4e438dd7d00446::t_fb638bdd82a9fa 28,30-32
+  s_4e438dd7d00446::t_fd5d01db4955e2 1-27,29,33-36
+src/routes/friends.tsx
+  s_4e438dd7d00446::t_f24814df7604c6 92
+  s_13cf9f7d9035f1::t_44fc036e53fc94 93-94
+  s_13cf9f7d9035f1::t_f5c4206582e94b 4-6
+  s_13cf9f7d9035f1::t_1de1a1f573eafd 128-132
+  s_13cf9f7d9035f1::t_61cc3a8a6eac8a 149-152,154
+  s_13cf9f7d9035f1::t_bdb759ca38498e 159,161,163-165,168,170
+src/routes/trips.$tripId.tsx
+  s_13cf9f7d9035f1::t_db643788fd5e7b 195-205,207
+  s_13cf9f7d9035f1::t_cfdd4240dbeb6d 389,391
+  s_13cf9f7d9035f1::t_2df34fc9b25ccc 6-8
+  s_13cf9f7d9035f1::t_1963313affef02 95-97,99,105-108,112
+  s_4e438dd7d00446::t_ca4cc9ebc74909 103
+src/routes/components.index.tsx
+  s_13cf9f7d9035f1::t_c140d8be5e7869 500,504-506,508
+  s_13cf9f7d9035f1::t_0659bc157177ac 538,540-541,543-544,546
+  s_13cf9f7d9035f1::t_01eb1f0e21b9bf 522-524
+  s_13cf9f7d9035f1::t_84ad452df9a3c6 13-15
+src/components/ui/SearchInput.tsx
+  s_4e438dd7d00446::t_8b1e3a25b50dab 1-55
+src/components/ui/Button.tsx
+  s_4e438dd7d00446::t_f855d117540cb9 47-48,56-57
+  s_4e438dd7d00446::t_cd0f465b807183 1-46,49-55,58-98
+src/components/ui/index.ts
+  s_4e438dd7d00446::t_027901c70989e3 1-15
+src/components/ui/Badge.tsx
+  s_4e438dd7d00446::t_ac52b9bf939f96 1-55
+src/components/ui/Avatar.tsx
+  s_4e438dd7d00446::t_96a2b41430ad68 1-117
+src/routes/activity.tsx
+  s_13cf9f7d9035f1::t_ae9c2967225448 6-7
+  s_13cf9f7d9035f1::t_12337063efffc1 138-143
+  s_13cf9f7d9035f1::t_8fc3448b2d98f7 115-120
+src/routes/map.tsx
+  s_13cf9f7d9035f1::t_fb2955a100aed1 90-92,96-98
+  s_13cf9f7d9035f1::t_b94f4c2ad85042 9-10
+src/routes/itinerary.tsx
+  s_4e438dd7d00446::t_a1566509692634 67-78,84-86,93-94
+  s_4e438dd7d00446::t_562bdfd33cab4b 5-6
+src/routes/discover.tsx
+  s_13cf9f7d9035f1::t_7b361b2ba05af6 135,137-140,144
+  s_13cf9f7d9035f1::t_daa73be4b46e23 96,98-100
+  s_13cf9f7d9035f1::t_97ef3f030f3e4c 7-11
+  s_13cf9f7d9035f1::t_6739b2b5e3cfd2 229,231,236-238,242
+src/components/PlaceDetailSheet.tsx
+  s_13cf9f7d9035f1::t_81d2fbb68574ba 137,145,147-150
+  s_4e438dd7d00446::t_0c4278641456b2 138-139
+  s_13cf9f7d9035f1::t_ac1815fabf0d82 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "762969d4189fe93feab2b7d337e177b0b859ea7c",
+  "prompts": {},
+  "humans": {
+    "h_0dbcbba47c7061": {
+      "author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_13cf9f7d9035f1": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "66aca2bf-0f64-49c7-a6cd-bc5af04174ec",
+        "model": "composer-2.5-fast"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    },
+    "s_4e438dd7d00446": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c87d1985-3b7b-4d0a-ae74-f989cd6ef303",
+        "model": "default"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  }
+}
