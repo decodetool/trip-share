@@ -87,7 +87,7 @@ function FriendsComponent() {
             <p className="text-text-secondary">Shared trips and activity</p>
           </div>
           <motion.button
-            className="p-3 bg-gradient-to-r from-accent-teal to-accent-cyan rounded-2xl"
+            className="p-3 bg-accent-teal rounded-2xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

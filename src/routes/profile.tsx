@@ -130,7 +130,7 @@ function ProfileComponent() {
           ) : (
             <motion.button
               onClick={handleOfflineDownload}
-              className="w-full py-3 bg-gradient-to-r from-accent-teal to-accent-cyan text-background rounded-2xl font-medium flex items-center justify-center gap-2"
+              className="w-full py-3 bg-accent-teal text-background rounded-2xl font-medium flex items-center justify-center gap-2"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

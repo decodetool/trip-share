@@ -108,7 +108,7 @@ function ProfileSettingsComponent() {
         {/* Save Button */}
         <motion.button
           onClick={handleSave}
-          className="w-full px-6 py-3 bg-gradient-to-r from-accent-teal to-accent-cyan text-background rounded-2xl font-medium"
+          className="w-full px-6 py-3 bg-accent-teal text-background rounded-2xl font-medium"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >

@@ -205,7 +205,7 @@ function ConversationComponent() {
           <motion.button
             onClick={handleSend}
             disabled={!messageText.trim()}
-            className="p-2.5 bg-gradient-to-r from-accent-teal to-accent-cyan text-background rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-2.5 bg-accent-teal text-background rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

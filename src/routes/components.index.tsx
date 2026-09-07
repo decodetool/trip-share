@@ -546,7 +546,7 @@ function StatusBadgesExample({ mini }: { mini?: boolean }) {
 function ButtonsExample({ mini }: { mini?: boolean }) {
   return (
     <div className="space-y-3">
-      <button className="w-full px-6 py-3 bg-gradient-to-r from-accent-teal to-accent-cyan text-background rounded-2xl font-medium hover:scale-105 transition-transform">
+      <button className="w-full px-6 py-3 bg-accent-teal text-background rounded-2xl font-medium hover:scale-105 transition-transform">
         Primary Button
       </button>
       <button className="w-full px-6 py-3 bg-surface border border-white/10 text-text-primary rounded-2xl font-medium hover:bg-white/5 transition-colors">

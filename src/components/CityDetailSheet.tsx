@@ -92,7 +92,7 @@ export function CityDetailSheet({ city, places, isOpen, onClose }: CityDetailShe
 
         {/* CTA */}
         <motion.button
-          className="w-full py-2.5 bg-gradient-to-r from-accent-teal to-accent-cyan text-background rounded-2xl font-semibold"
+          className="w-full py-2.5 bg-accent-teal text-background rounded-2xl font-semibold"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >

@@ -139,7 +139,7 @@ export function PlaceDetailSheet({
               onAddToItinerary?.(place.id);
               onClose();
             }}
-            className="flex-1 py-2.5 bg-gradient-to-r from-accent-teal to-accent-cyan text-background rounded-2xl font-medium flex items-center justify-center gap-2"
+            className="flex-1 py-2.5 bg-accent-teal text-background rounded-2xl font-medium flex items-center justify-center gap-2"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
