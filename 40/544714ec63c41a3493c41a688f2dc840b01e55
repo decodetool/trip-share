@@ -1,0 +1,40 @@
+src/routes/profile.tsx
+  s_add98a7fe6d99a::t_870bc0817eb16f 133
+src/routes/settings.profile.tsx
+  s_add98a7fe6d99a::t_870bc0817eb16f 111
+src/routes/components.index.tsx
+  s_add98a7fe6d99a::t_870bc0817eb16f 549
+src/routes/messages.$conversationId.tsx
+  s_add98a7fe6d99a::t_870bc0817eb16f 208
+src/components/PlaceDetailSheet.tsx
+  s_add98a7fe6d99a::t_870bc0817eb16f 142
+src/routes/itinerary.tsx
+  s_add98a7fe6d99a::t_870bc0817eb16f 74,88
+src/routes/friends.tsx
+  s_add98a7fe6d99a::t_870bc0817eb16f 90
+src/routes/cities.$cityId.tsx
+  s_add98a7fe6d99a::t_870bc0817eb16f 195
+src/components/CityDetailSheet.tsx
+  s_add98a7fe6d99a::t_5e495e0ca0cf0a 95
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "40544714ec63c41a3493c41a688f2dc840b01e55",
+  "prompts": {},
+  "humans": {
+    "h_0dbcbba47c7061": {
+      "author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_add98a7fe6d99a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0591a-d413-74a3-bfd2-4f573c526b08",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  }
+}
