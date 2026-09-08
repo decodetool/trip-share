@@ -1,0 +1,29 @@
+src/routes/messages.$conversationId.tsx
+  s_c5db9e8890b090::t_d53999dd84aad3 150
+src/routes/components.index.tsx
+  s_c5db9e8890b090::t_d53999dd84aad3 348,370-371
+src/index.css
+  s_c5db9e8890b090::t_d53999dd84aad3 20-21,35,121-125
+  s_c5db9e8890b090::t_07dde3eb18c55c 126-127
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "f87dedd39f5f8822c40a3bce852a94d42834faa9",
+  "prompts": {},
+  "humans": {
+    "h_0dbcbba47c7061": {
+      "author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_c5db9e8890b090": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a07c9d-188f-7361-8c2a-a2e171ca8dc7",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  }
+}
