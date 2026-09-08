@@ -24,7 +24,7 @@
 .dark {
   --color-background: 0.205 0.014 85;
   /* Darker bg */
-  --color-background: 0.305 0.014 90;
+  /* --color-background: 0.305 0.014 90; */
   --color-surface: 0.255 0.016 85;
   --color-surface-secondary: 0.305 0.02 85;
   --color-text-primary: 0.935 0.012 85;
@@ -32,7 +32,7 @@
   --color-accent-teal: 0.69 0.13 31;
   --color-accent-cyan: 0.72 0.075 210;
   --color-border: 0.4 0.018 85;
-  --color-message-sent: 0.80 0.035 85;
+  --color-message-sent: 0.8 0.035 85;
 }
 
 @layer base {
