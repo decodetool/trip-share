@@ -1,0 +1,31 @@
+src/routes/trips.index.tsx
+  s_9b06cf9b9590bc::t_8b99bc59c9f5ae 10,217
+src/routes/discover.tsx
+  s_9b06cf9b9590bc::t_8b99bc59c9f5ae 237
+src/components/ui/Button.tsx
+  s_9b06cf9b9590bc::t_8b99bc59c9f5ae 11-12
+  s_9b06cf9b9590bc::t_c564c3eb29f5d1 14
+src/components/ui/TripDateBadge.tsx
+  s_9b06cf9b9590bc::t_93a1293ec530c7 1-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "bdadafdea577017a566f9c8cee7538c8ed17f422",
+  "prompts": {},
+  "humans": {
+    "h_0dbcbba47c7061": {
+      "author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_9b06cf9b9590bc": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a08277-df41-7451-8de4-b9b42048fd39",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  }
+}
