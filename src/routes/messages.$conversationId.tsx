@@ -147,7 +147,7 @@ function ConversationComponent() {
                 <div
                   className={`max-w-[75%] px-4 py-2.5 rounded-2xl ${
                     isCurrentUser
-                      ? 'bg-gradient-to-r from-accent-teal to-accent-cyan text-background rounded-br-sm'
+                      ? 'message-sent rounded-br-sm'
                       : 'bg-surface text-text-primary rounded-bl-sm'
                   }`}
                 >

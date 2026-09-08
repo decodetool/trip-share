@@ -17,6 +17,8 @@
   --color-accent-teal: 0.55 0.15 31;
   --color-accent-cyan: 0.44 0.07 210;
   --color-border: 0.86 0.015 85;
+  --color-message-sent: 0.89 0.035 85;
+  --color-message-sent-text: 0.27 0.016 105;
 }
 
 .dark {
@@ -30,6 +32,7 @@
   --color-accent-teal: 0.69 0.13 31;
   --color-accent-cyan: 0.72 0.075 210;
   --color-border: 0.4 0.018 85;
+  --color-message-sent: 0.80 0.035 85;
 }
 
 @layer base {
@@ -113,5 +116,12 @@
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .message-sent {
+    background-color: oklch(var(--color-message-sent));
+    color: oklch(var(--color-message-sent-text));
   }
 }

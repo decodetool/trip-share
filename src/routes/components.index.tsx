@@ -345,7 +345,7 @@ function MessageBubbleExample({ message, mini }: { message: Message; mini?: bool
       {!mini && (
         <div className="text-sm text-text-secondary mt-4">
           <p className="mb-2"><strong>Usage:</strong> Chat message bubble with sender avatar</p>
-          <p><strong>Variants:</strong> Sent (right-aligned, gradient), Received (left-aligned, surface)</p>
+          <p><strong>Variants:</strong> Sent (right-aligned, muted sand), Received (left-aligned, surface)</p>
         </div>
       )}
     </div>
@@ -367,8 +367,8 @@ function MessageBubbleVariantsExample() {
 
       {/* Sent */}
       <div className="flex gap-3 justify-end">
-        <div className="bg-gradient-to-r from-accent-teal to-accent-cyan rounded-2xl rounded-tr-sm px-4 py-2.5">
-          <p className="text-background text-sm">Sent message</p>
+        <div className="message-sent rounded-2xl rounded-br-sm px-4 py-2.5">
+          <p className="text-sm">Sent message</p>
         </div>
       </div>
     </div>
