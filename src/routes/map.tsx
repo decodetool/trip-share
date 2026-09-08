@@ -1,3 +1,4 @@
+import { MotionLink } from '@/components/ui/Link';
 import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
@@ -136,6 +137,7 @@ function MapComponent() {
         {filteredPlaces && (
           <Map
             places={filteredPlaces}
+            placeHref={(id) => `/map?${new URLSearchParams({ place: id })}`}
             selectedPlaceId={selectedPlaceId ?? undefined}
             onPlaceClick={(id) => {
               setSelectedPlaceId(id);
@@ -156,13 +158,10 @@ function MapComponent() {
             <span className="text-xs font-semibold uppercase tracking-[0.14em] text-text-secondary">{filteredPlaces?.length || 0} kept</span>
           </div>
           {filteredPlaces?.map((place, index) => (
-            <motion.div
+            <MotionLink
               key={place.id}
-              onClick={() => {
-                setSelectedPlaceId(place.id);
-                navigate({ to: '/map', search: { place: place.id } });
-              }}
-              className={`flex items-center gap-3 p-3 bg-surface rounded-xl border transition-colors cursor-pointer ${
+              to="/map" search={{ place: place.id }}
+              className={`focus-ring flex items-center gap-3 p-3 bg-surface rounded-xl border transition-colors cursor-pointer ${
                 selectedPlaceId === place.id
                   ? 'border-accent-cyan'
                   : 'border-border hover:border-text-secondary/40'
@@ -182,7 +181,7 @@ function MapComponent() {
                 <p className="text-text-primary font-medium text-sm truncate">{place.name}</p>
                 <p className="text-text-secondary text-xs">{place.category}</p>
               </div>
-            </motion.div>
+            </MotionLink>
           ))}
         </div>
       </div>

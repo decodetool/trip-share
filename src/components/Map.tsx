@@ -6,13 +6,14 @@ import type { Place, Category } from '@/types';
 interface MapProps {
   places: Place[];
   selectedPlaceId?: string;
+  placeHref?: (placeId: string) => string;
   onPlaceClick?: (placeId: string) => void;
   categoryColors: Record<Category, string>;
   categoryEmoji: Record<Category, string>;
   flyToPlace?: boolean; // Whether to fly to the place when selected
 }
 
-export function Map({ places, selectedPlaceId, onPlaceClick, categoryColors, categoryEmoji, flyToPlace = false }: MapProps) {
+export function Map({ places, selectedPlaceId, onPlaceClick, placeHref, categoryColors, categoryEmoji, flyToPlace = false }: MapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<maplibregl.Map | null>(null);
   const markers = useRef<maplibregl.Marker[]>([]);
@@ -95,8 +96,10 @@ export function Map({ places, selectedPlaceId, onPlaceClick, categoryColors, cat
       if (!map.current) return;
 
       // Create custom marker element (container - never transform this)
-      const el = document.createElement('div');
-      el.className = 'custom-marker';
+      const el = document.createElement('a');
+      if (placeHref) el.href = placeHref(place.id);
+      el.setAttribute('aria-label', place.name);
+      el.className = 'custom-marker focus-ring';
       el.style.width = '40px';
       el.style.height = '40px';
       el.style.cursor = 'pointer';
@@ -137,7 +140,11 @@ export function Map({ places, selectedPlaceId, onPlaceClick, categoryColors, cat
 
       el.addEventListener('click', (e) => {
         e.stopPropagation();
-        onPlaceClick?.(place.id);
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        if (onPlaceClick) {
+          e.preventDefault();
+          onPlaceClick(place.id);
+        }
       });
 
       const marker = new maplibregl.Marker({
@@ -159,7 +166,7 @@ export function Map({ places, selectedPlaceId, onPlaceClick, categoryColors, cat
 
       markers.current.push(marker);
     });
-  }, [places, categoryColors, categoryEmoji, onPlaceClick, mapReady, selectedPlaceId]);
+  }, [places, categoryColors, categoryEmoji, onPlaceClick, placeHref, mapReady, selectedPlaceId]);
 
   // Update marker styles when selection changes (without recreating them)
   useEffect(() => {

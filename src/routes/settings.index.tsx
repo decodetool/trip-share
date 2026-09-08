@@ -1,4 +1,5 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { MotionLink } from '@/components/ui/Link';
+import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import {
   User,
@@ -33,7 +34,6 @@ interface SettingItem {
 }
 
 function SettingsComponent() {
-  const navigate = useNavigate();
   const { theme, preference, setPreference } = useTheme();
 
   const settingsSections: { title: string; items: SettingItem[] }[] = [
@@ -109,13 +109,7 @@ function SettingsComponent() {
     },
   ];
 
-  const handleItemClick = (item: SettingItem) => {
-    if (item.action) {
-      item.action();
-    } else if (item.to) {
-      navigate({ to: item.to });
-    }
-  };
+
 
   return (
     <div className="min-h-screen pb-24">
@@ -141,10 +135,12 @@ function SettingsComponent() {
               </h2>
             )}
             <div className="bg-surface mx-6 rounded-2xl border border-border overflow-hidden">
-              {section.items.map((item, itemIndex) => (
-                <motion.button
+              {section.items.map((item, itemIndex) => {
+                const Component = item.to ? MotionLink : motion.button;
+                return (
+                <Component
                   key={item.id}
-                  onClick={() => handleItemClick(item)}
+                  {...(item.to ? { to: item.to } : { onClick: item.action })}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: (sectionIndex * 0.1) + (itemIndex * 0.05) }}
@@ -173,8 +169,8 @@ function SettingsComponent() {
                     size={20}
                     className={item.danger ? 'text-red-400/50' : 'text-text-secondary'}
                   />
-                </motion.button>
-              ))}
+                </Component>
+              ); })}
             </div>
             {section.title === 'Preferences' && (
               <AppearanceSettings

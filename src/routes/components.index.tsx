@@ -1,4 +1,5 @@
-import { createFileRoute, useSearch, useNavigate } from '@tanstack/react-router';
+import { MotionLink } from '@/components/ui/Link';
+import { createFileRoute, useSearch } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import {
   MapPin,
@@ -41,7 +42,6 @@ function ComponentGalleryComponent() {
 }
 
 function GalleryGridView() {
-  const navigate = useNavigate();
 
   const componentSections = [
     {
@@ -108,9 +108,9 @@ function GalleryGridView() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-6">
               {section.components.map((component, componentIndex) => (
-                <motion.button
+                <MotionLink
                   key={component.id}
-                  onClick={() => navigate({ to: '/components', search: { component: component.id } })}
+                  to="/components" search={{ component: component.id }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: (sectionIndex * 0.1) + (componentIndex * 0.05) }}
@@ -127,9 +127,9 @@ function GalleryGridView() {
 
                   {/* Mini Preview */}
                   <div className="bg-background/50 rounded-xl p-3 border border-white/5">
-                    <ComponentPreview componentId={component.id} mini />
+                    <div inert><ComponentPreview componentId={component.id} mini /></div>
                   </div>
-                </motion.button>
+                </MotionLink>
               ))}
             </div>
           </div>
@@ -140,19 +140,18 @@ function GalleryGridView() {
 }
 
 function SingleComponentView({ componentId }: { componentId: string }) {
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen pb-24">
       {/* Header */}
       <header className="px-6 pt-12 pb-6">
-        <button
-          onClick={() => navigate({ to: '/components', search: { component: undefined } })}
+        <MotionLink
+          to="/components" search={{ component: undefined }}
           className="text-accent-cyan hover:text-accent-teal transition-colors mb-4 flex items-center gap-2"
         >
           <ArrowRight size={16} className="rotate-180" />
           Back to Gallery
-        </button>
+        </MotionLink>
         <motion.h1
           className="text-3xl font-bold text-text-primary mb-2"
           initial={{ opacity: 0, y: -20 }}

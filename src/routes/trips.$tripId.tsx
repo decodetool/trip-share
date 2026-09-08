@@ -1,11 +1,13 @@
-import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router';
+import { ArrowLeft } from 'lucide-react';
+import { MotionLink } from '@/components/ui/Link';
+import { createFileRoute, useSearch } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { mockApi } from '@/lib/mock-api';
 import { Tabs } from '@/components/ui/Tabs';
 import { Avatar, AvatarGroup } from '@/components/ui/Avatar';
 import { Button } from '@/components/ui/Button';
-import { BackButton, IconButton } from '@/components/ui/IconButton';
+import { iconButtonVariants, IconButton } from '@/components/ui/IconButton';
 import type { ItineraryItem, Place, Trip } from '@/types';
 import {
   MapPin,
@@ -31,7 +33,6 @@ export const Route = createFileRoute('/trips/$tripId')({
 });
 
 function TripDetailComponent() {
-  const navigate = useNavigate();
   const { tripId } = Route.useParams();
   const searchParams = useSearch({ from: '/trips/$tripId' });
   const activeTab = searchParams.tab || 'overview';
@@ -69,12 +70,11 @@ function TripDetailComponent() {
     { id: 'sharing', label: 'Sharing' },
   ];
 
-  const handleTabChange = (tabId: string) => {
-    navigate({
-      to: `/trips/${tripId}`,
+  const linkForTab = (tabId: string) => ({
+      to: '/trips/$tripId' as const,
+      params: { tripId },
       search: { tab: tabId as 'overview' | 'budget' | 'packing' | 'sharing' },
     });
-  };
 
   return (
     <div className="min-h-screen pb-24">
@@ -92,11 +92,7 @@ function TripDetailComponent() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
 
         {/* Back Button */}
-        <BackButton
-          variant="overlay"
-          className="absolute top-6 left-6"
-          onClick={() => navigate({ to: '/trips', search: { filter: 'all' } })}
-        />
+        <MotionLink to="/trips" search={{ filter: 'all' }} aria-label="Go back" className={iconButtonVariants({ variant: 'overlay', className: 'absolute top-6 left-6' })}><ArrowLeft size={20} /></MotionLink>
 
         {/* Action Buttons */}
         <div className="absolute top-6 right-6 flex gap-2">
@@ -129,7 +125,7 @@ function TripDetailComponent() {
 
       {/* Tabs */}
       <div className="px-6 py-4 border-b border-white/5">
-        <Tabs tabs={tabs} activeTab={activeTab} onChange={handleTabChange} />
+        <Tabs tabs={tabs} activeTab={activeTab} linkForTab={linkForTab} />
       </div>
 
       {/* Tab Content */}
@@ -154,7 +150,6 @@ function OverviewTab({
   itinerary?: ItineraryItem[];
   places?: Place[];
 }) {
-  const navigate = useNavigate();
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString('en-US', {
       month: 'long',
@@ -228,9 +223,9 @@ function OverviewTab({
 
       {/* Compact Itinerary Preview - Click to view full */}
       {itinerary && itinerary.length > 0 && (
-        <motion.div
-          onClick={() => navigate({ to: '/itinerary' })}
-          className="bg-gradient-to-br from-accent-teal/10 to-accent-cyan/10 rounded-3xl p-6 border border-accent-cyan/20 cursor-pointer hover:border-accent-cyan/40 transition-all"
+        <MotionLink
+          to="/itinerary"
+          className="block focus-ring bg-gradient-to-br from-accent-teal/10 to-accent-cyan/10 rounded-3xl p-6 border border-accent-cyan/20 cursor-pointer hover:border-accent-cyan/40 transition-all"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -268,7 +263,7 @@ function OverviewTab({
           <p className="text-text-secondary text-sm mt-3">
             {itinerary.length} activities planned • Tap to view full schedule
           </p>
-        </motion.div>
+        </MotionLink>
       )}
     </div>
   );

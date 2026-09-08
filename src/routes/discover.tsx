@@ -1,3 +1,4 @@
+import { MotionLink } from '@/components/ui/Link';
 import { createFileRoute, useLocation, useNavigate, useSearch } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,7 +7,7 @@ import { mockApi } from '@/lib/mock-api';
 import type { City } from '@/types';
 import { MapPin } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
+import { buttonVariants } from '@/components/ui/Button';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { SearchInput } from '@/components/ui/SearchInput';
 import { CityCardSkeleton } from '@/components/LoadingSkeleton';
@@ -172,7 +173,6 @@ export function DiscoverComponent() {
 }
 
 function CityCard({ city, index }: { city: City; index: number }) {
-  const navigate = useNavigate();
   const location = useLocation();
   const discoverPath = location.pathname === '/discover' ? '/discover' : '/';
 
@@ -233,13 +233,12 @@ function CityCard({ city, index }: { city: City; index: number }) {
           </div>
 
           {/* CTA */}
-          <Button
-            fullWidth
-            className="mt-4 text-surface shadow-glow-teal"
-            onClick={() => navigate({ to: discoverPath, search: { city: city.id, place: undefined } })}
+          <MotionLink
+            className={buttonVariants({ fullWidth: true, className: 'mt-4 text-surface shadow-glow-teal' })}
+            to={discoverPath} search={{ city: city.id, place: undefined }}
           >
             Plan Trip
-          </Button>
+          </MotionLink>
         </div>
       </div>
     </motion.div>

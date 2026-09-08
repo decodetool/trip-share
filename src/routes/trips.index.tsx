@@ -1,4 +1,5 @@
-import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router';
+import { MotionLink } from '@/components/ui/Link';
+import { createFileRoute, useSearch } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
 import { mockApi } from '@/lib/mock-api';
@@ -22,7 +23,6 @@ export const Route = createFileRoute('/trips/')({
 });
 
 function TripsListComponent() {
-  const navigate = useNavigate();
   const searchParams = useSearch({ from: '/trips/' });
   const activeFilter = searchParams.filter || 'all';
 
@@ -72,12 +72,10 @@ function TripsListComponent() {
     },
   ];
 
-  const handleTabChange = (tabId: string) => {
-    navigate({
-      to: '/trips',
+  const linkForTab = (tabId: string) => ({
+      to: '/trips' as const,
       search: { filter: tabId as 'all' | 'upcoming' | 'past' | 'shared' },
     });
-  };
 
   if (isLoading) {
     return (
@@ -109,7 +107,7 @@ function TripsListComponent() {
         <p className="text-text-secondary mb-4">The plans, people, and places ahead.</p>
 
         {/* Filter Tabs */}
-        <Tabs tabs={tabs} activeTab={activeFilter} onChange={handleTabChange} className="mt-6" />
+        <Tabs tabs={tabs} activeTab={activeFilter} linkForTab={linkForTab} className="mt-6" />
       </header>
 
       {/* Timeline View */}
@@ -143,7 +141,6 @@ function TripsListComponent() {
                         key={trip.id}
                         trip={trip}
                         index={tripIndex}
-                        onClick={() => navigate({ to: `/trips/${trip.id}` })}
                       />
                     ))}
                   </div>
@@ -180,11 +177,9 @@ function TripsListComponent() {
 function TripTimelineCard({
   trip,
   index,
-  onClick,
 }: {
   trip: Trip;
   index: number;
-  onClick: () => void;
 }) {
   const getDuration = () => {
     const start = new Date(trip.startDate);
@@ -207,14 +202,14 @@ function TripTimelineCard({
   };
 
   return (
-    <motion.div
+    <MotionLink
       layout
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 20 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
-      onClick={onClick}
-      className="group relative cursor-pointer"
+      to="/trips/$tripId" params={{ tripId: trip.id }} search={{ tab: 'overview' }}
+      className="group relative block focus-ring rounded-2xl"
     >
       <div className={`relative flex gap-3 p-4 rounded-2xl border transition-colors ${getStatusColor()} hover:border-text-secondary/40`}>
         {/* Date Badge */}
@@ -262,6 +257,6 @@ function TripTimelineCard({
           </div>
         </div>
       </div>
-    </motion.div>
+    </MotionLink>
   );
 }

@@ -1,10 +1,11 @@
+import { ArrowLeft } from 'lucide-react';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { mockApi } from '@/lib/mock-api';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { BackButton } from '@/components/ui/IconButton';
+import { buttonVariants } from '@/components/ui/Button';
+import { iconButtonVariants } from '@/components/ui/IconButton';
 import { StatCard } from '@/components/ui/StatCard';
 import { Plus, Star } from 'lucide-react';
 import { useState } from 'react';
@@ -72,12 +73,9 @@ function CityDetailComponent() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
 
         {/* Back Button */}
-        <Link to="/" search={{ city: undefined, place: undefined }}>
-          <BackButton
-            variant="overlay"
-            className="absolute left-6 top-12"
-            whileTap={{ scale: 0.95 }}
-          />
+        <Link to="/" search={{ city: undefined, place: undefined }} aria-label="Go back"
+          className={iconButtonVariants({ variant: 'overlay', className: 'absolute left-6 top-12' })}>
+          <ArrowLeft size={20} />
         </Link>
 
         {/* City Info */}
@@ -195,11 +193,9 @@ function CityDetailComponent() {
         </div>
 
         {/* CTA */}
-        <Link to="/itinerary">
-          <Button fullWidth size="lg" className="mt-6">
+        <Link to="/itinerary" className={buttonVariants({ fullWidth: true, size: 'lg', className: 'mt-6' })}>
             <Plus className="h-5 w-5" />
             Start Planning Trip
-          </Button>
         </Link>
       </div>
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap");
 
 @import "@silk-hq/components/layered-styles.css";
 
@@ -8,6 +8,8 @@
 
 :root {
   --color-background: 0.955 0.014 85;
+  /* Pinkish alternative bg */
+  /* --color-background: 0.955 0.044 45; */
   --color-surface: 0.987 0.008 82;
   --color-surface-secondary: 0.932 0.018 85;
   --color-text-primary: 0.27 0.016 105;
@@ -19,6 +21,8 @@
 
 .dark {
   --color-background: 0.205 0.014 85;
+  /* Darker bg */
+  --color-background: 0.305 0.014 90;
   --color-surface: 0.255 0.016 85;
   --color-surface-secondary: 0.305 0.02 85;
   --color-text-primary: 0.935 0.012 85;
@@ -73,7 +77,7 @@
 
   /* Subtle noise texture */
   .noise-texture::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     opacity: 0.025;

@@ -1,4 +1,5 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { MotionLink } from '@/components/ui/Link';
+import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { mockConversations, currentUser } from '@/lib/seed-data';
 import { MessageCircle } from 'lucide-react';
@@ -16,7 +17,6 @@ export const Route = createFileRoute('/messages/')({
 });
 
 function MessagesListComponent() {
-  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredConversations = mockConversations.filter((conv) =>
@@ -78,13 +78,13 @@ function MessagesListComponent() {
                 : otherParticipants[0].name;
 
               return (
-                <motion.div
+                <MotionLink
                   key={conversation.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: index * 0.03 }}
-                  onClick={() => navigate({ to: `/messages/${conversation.id}` })}
-                  className="px-6 py-4 border-b border-border hover:bg-surface-secondary/50 transition-colors cursor-pointer"
+                  to="/messages/$conversationId" params={{ conversationId: conversation.id }}
+                  className="block focus-ring px-6 py-4 border-b border-border hover:bg-surface-secondary/50 transition-colors cursor-pointer"
                 >
                   <div className="flex gap-3">
                     {/* Avatar(s) */}
@@ -144,7 +144,7 @@ function MessagesListComponent() {
                       )}
                     </div>
                   </div>
-                </motion.div>
+                </MotionLink>
               );
             })}
           </div>

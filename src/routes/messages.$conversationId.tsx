@@ -1,11 +1,13 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { ArrowLeft } from 'lucide-react';
+import { MotionLink } from '@/components/ui/Link';
+import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { mockConversations, currentUser } from '@/lib/seed-data';
 import { Send, Image as ImageIcon, Smile } from 'lucide-react';
 import { useState } from 'react';
 import { Avatar } from '@/components/ui/Avatar';
 import { Button } from '@/components/ui/Button';
-import { BackButton } from '@/components/ui/IconButton';
+import { iconButtonVariants } from '@/components/ui/IconButton';
 
 export const Route = createFileRoute('/messages/$conversationId')({
   component: ConversationComponent,
@@ -51,7 +53,6 @@ const mockMessages = [
 ];
 
 function ConversationComponent() {
-  const navigate = useNavigate();
   const { conversationId } = Route.useParams();
   const [messageText, setMessageText] = useState('');
 
@@ -90,7 +91,7 @@ function ConversationComponent() {
       {/* Header */}
       <header className="px-4 py-3 border-b border-white/5 bg-surface/50 backdrop-blur-xl">
         <div className="flex items-center gap-3">
-          <BackButton onClick={() => navigate({ to: '/messages' })} />
+          <MotionLink to="/messages" aria-label="Go back" className={iconButtonVariants()}><ArrowLeft size={20} /></MotionLink>
 
           {/* Avatar */}
           {!isGroup ? (

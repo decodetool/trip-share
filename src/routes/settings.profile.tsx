@@ -1,11 +1,13 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { ArrowLeft } from 'lucide-react';
+import { MotionLink } from '@/components/ui/Link';
+import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { Camera } from 'lucide-react';
 import { currentUser } from '@/lib/seed-data';
 import { useState } from 'react';
 import { Avatar } from '@/components/ui/Avatar';
 import { Button } from '@/components/ui/Button';
-import { BackButton } from '@/components/ui/IconButton';
+import { iconButtonVariants } from '@/components/ui/IconButton';
 
 export const Route = createFileRoute('/settings/profile')({
   component: ProfileSettingsComponent,
@@ -15,7 +17,6 @@ export const Route = createFileRoute('/settings/profile')({
 });
 
 function ProfileSettingsComponent() {
-  const navigate = useNavigate();
   const [name, setName] = useState(currentUser.name);
   const [email, setEmail] = useState(currentUser.email || '');
 
@@ -28,7 +29,7 @@ function ProfileSettingsComponent() {
       {/* Header */}
       <header className="px-6 pt-12 pb-6 border-b border-white/5">
         <div className="flex items-center gap-4 mb-4">
-          <BackButton onClick={() => navigate({ to: '/settings' })} />
+          <MotionLink to="/settings" aria-label="Go back" className={iconButtonVariants()}><ArrowLeft size={20} /></MotionLink>
           <motion.h1
             className="text-2xl font-bold text-text-primary"
             initial={{ opacity: 0, y: -20 }}

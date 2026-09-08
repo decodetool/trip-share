@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { MotionLink } from './Link';
+import type { LinkProps } from '@tanstack/react-router';
 import { cn } from '@/lib/utils';
 
 interface Tab {
@@ -10,20 +12,23 @@ interface Tab {
 interface TabsProps {
   tabs: Tab[];
   activeTab: string;
-  onChange: (tabId: string) => void;
+  onChange?: (tabId: string) => void;
+  linkForTab?: (tabId: string) => Pick<LinkProps, 'to' | 'params' | 'search'>;
   className?: string;
 }
 
-export function Tabs({ tabs, activeTab, onChange, className }: TabsProps) {
+export function Tabs({ tabs, activeTab, onChange, linkForTab, className }: TabsProps) {
   return (
     <div className={cn('flex gap-2 overflow-x-auto scrollbar-hide', className)}>
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
 
+        const Component = linkForTab ? MotionLink : motion.button;
         return (
-          <motion.button
+          <Component
             key={tab.id}
-            onClick={() => onChange(tab.id)}
+            {...(linkForTab ? linkForTab(tab.id) : { onClick: () => onChange?.(tab.id) })}
+            aria-current={linkForTab && isActive ? 'page' : undefined}
             className={cn(
               'relative px-4 py-2 rounded-2xl text-sm font-medium whitespace-nowrap transition-colors focus-ring',
               isActive
@@ -54,7 +59,7 @@ export function Tabs({ tabs, activeTab, onChange, className }: TabsProps) {
                 </span>
               )}
             </span>
-          </motion.button>
+          </Component>
         );
       })}
     </div>
