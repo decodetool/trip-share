@@ -1,0 +1,55 @@
+src/routes/map.tsx
+  s_c5db9e8890b090::t_a57e3fa624251e 140
+  s_c5db9e8890b090::t_d62778251c8951 1,161,163-164,184
+src/components/Map.tsx
+  s_c5db9e8890b090::t_a57e3fa624251e 9,16,99-102,143-147,169
+src/routes/trips.index.tsx
+  s_c5db9e8890b090::t_d62778251c8951 1-2,75-76,110,205,211-212,260
+src/index.css
+  h_0dbcbba47c7061 1,11-12,24-25,80
+src/routes/messages.index.tsx
+  s_c5db9e8890b090::t_d62778251c8951 1-2,81,86-87,147
+src/routes/cities.$cityId.tsx
+  s_c5db9e8890b090::t_e04385361f77af 1,7-8,76-78,196
+src/routes/settings.profile.tsx
+  s_c5db9e8890b090::t_d62778251c8951 1-3,10,32
+src/routes/messages.$conversationId.tsx
+  s_c5db9e8890b090::t_d62778251c8951 1-3,10,94
+src/routes/discover.tsx
+  s_c5db9e8890b090::t_d62778251c8951 1,10,236-238,241
+src/components/ui/Button.tsx
+  h_0dbcbba47c7061 1-3,6,10,12,14-15,18-23,26-27,31-32,35,38,51,69,71,79,82,89-91
+  h_0dbcbba47c7061 11,13
+src/components/ui/Link.tsx
+  s_c5db9e8890b090::t_d62778251c8951 1-5
+src/routes/components.index.tsx
+  s_c5db9e8890b090::t_d62778251c8951 1-2,111,113,130,132,148-149,154
+src/components/ui/Tabs.tsx
+  s_c5db9e8890b090::t_a57e3fa624251e 16
+  s_c5db9e8890b090::t_d62778251c8951 2-3,15,20,26,28,30-31,62
+src/routes/trips.$tripId.tsx
+  s_c5db9e8890b090::t_d62778251c8951 1-3,10,73-75,95,128,226-228,266
+src/routes/settings.index.tsx
+  s_c5db9e8890b090::t_d62778251c8951 1-2,112,138-141,143,172-173
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "6821c8b72e2bd7fe21adf726184e8e915159bfb4",
+  "prompts": {},
+  "humans": {
+    "h_0dbcbba47c7061": {
+      "author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_c5db9e8890b090": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a07c9d-188f-7361-8c2a-a2e171ca8dc7",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>"
+    }
+  }
+}
