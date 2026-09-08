@@ -8,8 +8,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: "bg-accent-teal text-background",
+        // Secondary actions use a tinted fill; neutral surface badges are metadata.
+        // Keep variant colors here so callers can switch variants without overrides.
         secondary:
-          "bg-surface border border-white/10 text-text-primary hover:bg-white/5",
+          "bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan hover:bg-accent-cyan/20",
         outline:
           "border border-accent-cyan text-accent-cyan hover:bg-accent-cyan/10",
         ghost: "text-text-primary hover:bg-white/5",

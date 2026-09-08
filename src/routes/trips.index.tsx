@@ -7,6 +7,7 @@ import { Avatar, AvatarGroup } from '@/components/ui/Avatar';
 import { Button, Fab } from '@/components/ui/Button';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { Tabs } from '@/components/ui/Tabs';
+import { TripDateBadge } from '@/components/ui/TripDateBadge';
 import { MapPin, Users, Plus, Plane, ArrowRight } from 'lucide-react';
 import type { Trip } from '@/types';
 
@@ -213,12 +214,7 @@ function TripTimelineCard({
     >
       <div className={`relative flex gap-3 p-4 rounded-2xl border transition-colors ${getStatusColor()} hover:border-text-secondary/40`}>
         {/* Date Badge */}
-        <div className="flex-shrink-0 w-16 flex flex-col items-center justify-center bg-accent-teal rounded-xl p-2 text-surface">
-          <div className="text-2xl font-bold leading-none">{new Date(trip.startDate).getDate()}</div>
-          <div className="text-[10px] uppercase font-semibold mt-0.5">
-            {new Date(trip.startDate).toLocaleDateString('en-US', { month: 'short' })}
-          </div>
-        </div>
+        <TripDateBadge date={trip.startDate} variant="primary" />
 
         {/* Trip Info */}
         <div className="flex-1 min-w-0">

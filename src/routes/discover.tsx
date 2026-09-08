@@ -234,7 +234,7 @@ function CityCard({ city, index }: { city: City; index: number }) {
 
           {/* CTA */}
           <MotionLink
-            className={buttonVariants({ fullWidth: true, className: 'mt-4 text-surface shadow-glow-teal' })}
+            className={buttonVariants({ variant: 'primary', fullWidth: true, className: 'mt-4' })}
             to={discoverPath} search={{ city: city.id, place: undefined }}
           >
             Plan Trip
